@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SapCencus</string>
+    <string name="welcome">Selamat Datang</string>
+    <string name="logo_bulila">Logo Bulila</string>
+    <string name="lihat_data">Lihat Data</string>
+    <string name="scan_dokumen">Scan Dokumen</string>
+    <string name="logout">Logout</string>
+    <string name="description_scan">Silahkan lakukan pemindaian dokumen berupa Kartu Tanda Penduduk (KTP).</string>
+</resources>
