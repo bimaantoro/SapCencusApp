@@ -5,4 +5,5 @@
     <color name="red">#E72929</color>
     <color name="primary">#1A5D1A</color>
     <color name="secondary">#7D7C7C</color>
+    <color name="onPrimary">#87A922</color>
 </resources>

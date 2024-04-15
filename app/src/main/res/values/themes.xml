@@ -10,9 +10,11 @@
     <style name="roundCorner" parent="">
         <item name="cornerSize">20%</item>
     </style>
-    
-    <style name="BtnLogoutStyle">
-        <item name="android:textColor">E72929</item>
+
+
+    <style name="rounded8">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8%</item>
     </style>
 
 </resources>

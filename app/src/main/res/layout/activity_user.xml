@@ -8,7 +8,7 @@
     tools:context=".ui.user.UserActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvHeadline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -20,17 +20,17 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintTop_toTopOf="@+id/gHorizontal1" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivLogo"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/logo_bulila"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeadline"
         app:srcCompat="@drawable/logo" />
 
     <com.google.android.material.button.MaterialButton
@@ -46,7 +46,7 @@
         android:text="@string/scan_dokumen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo"
         app:shapeAppearance="@style/roundCorner" />
 
     <com.google.android.material.button.MaterialButton
@@ -81,15 +81,15 @@
         app:shapeAppearance="@style/roundCorner" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
+        android:id="@+id/gHorizontal1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.2" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+        android:id="@+id/gVertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
