@@ -2,7 +2,7 @@ package com.desabulila.snapcencus.ui.user.edit
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.desabulila.snapcencus.data.Result
+import com.desabulila.snapcencus.data.ResultState
 import com.desabulila.snapcencus.data.SnapCencusRepository
 import com.desabulila.snapcencus.data.network.response.CommonResponse
 import com.desabulila.snapcencus.data.network.response.DetailPendudukResponse
@@ -13,18 +13,18 @@ import kotlinx.coroutines.launch
 
 class EditDataViewModel(private val snapCencusRepository: SnapCencusRepository) : ViewModel() {
 
-    private val _result: MutableStateFlow<Result<DetailPendudukResponse?>> =
-        MutableStateFlow(Result.Loading())
-    val result: StateFlow<Result<DetailPendudukResponse?>> = _result
+    private val _resultState: MutableStateFlow<ResultState<DetailPendudukResponse?>> =
+        MutableStateFlow(ResultState.Loading())
+    val resultState: StateFlow<ResultState<DetailPendudukResponse?>> = _resultState
 
-    private val _updatePendudukResult: MutableStateFlow<Result<CommonResponse?>> =
-        MutableStateFlow(Result.Loading())
-    val updatePendudukResult: StateFlow<Result<CommonResponse?>> = _updatePendudukResult
+    private val _updatePendudukResultState: MutableStateFlow<ResultState<CommonResponse?>> =
+        MutableStateFlow(ResultState.Loading())
+    val updatePendudukResultState: StateFlow<ResultState<CommonResponse?>> = _updatePendudukResultState
 
     fun getDetailPenduduk(nik: String) {
         viewModelScope.launch {
             snapCencusRepository.getDetailPenduduk(nik).collectLatest {
-                _result.value = it
+                _resultState.value = it
             }
         }
     }
@@ -153,7 +153,7 @@ class EditDataViewModel(private val snapCencusRepository: SnapCencusRepository) 
                 bacaHuruf,
                 keterangan
             ).collectLatest {
-                _updatePendudukResult.value = it
+                _updatePendudukResultState.value = it
             }
         }
     }

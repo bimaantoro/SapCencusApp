@@ -27,7 +27,7 @@ class ViewModelFactory(private val snapCencusRepository: SnapCencusRepository) :
                 ResultKtpViewModel(snapCencusRepository) as T
             }
 
-            else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
+            else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
     }
 

@@ -1,36 +1,54 @@
 package com.desabulila.snapcencus.data
 
-import com.desabulila.snapcencus.data.model.BaseModel
+import com.desabulila.snapcencus.data.model.ListDataModel
 import com.desabulila.snapcencus.data.network.response.CommonResponse
 import com.desabulila.snapcencus.data.network.response.DetailPendudukResponse
 import com.desabulila.snapcencus.data.network.retrofit.ApiService
+import com.google.gson.Gson
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import retrofit2.Response
+import kotlinx.coroutines.flow.flowOn
+import retrofit2.HttpException
 
 class SnapCencusRepository(
     private val apiService: ApiService
 ) {
 
-    suspend fun getDataPenduduk(): Flow<Result<DataModel?>> {
-        return wrapWithFlow(
-            apiService::getData.invoke()
-        )
-    }
+    suspend fun getListData(): Flow<ResultState<ListDataModel>> = flow {
+        emit(ResultState.Loading)
+        try {
+            val response = apiService.getBaseData()
+            emit(ResultState.Success(response))
+        } catch (exc: HttpException) {
+            emit(ResultState.Error(exc.message.toString()))
+        }
+    }.flowOn(Dispatchers.IO)
 
-    suspend fun getListPenduduk(): Flow<Result<BaseModel?>> {
-        return wrapWithFlow(
-            apiService::getPenduduk.invoke()
-        )
-    }
 
-    suspend fun getDetailPenduduk(nik: String): Flow<Result<DetailPendudukResponse?>> {
-        return wrapWithFlow(
-            apiService::getDetailPenduduk.invoke(nik)
-        )
-    }
+    suspend fun getPenduduk(): Flow<ResultState<ListDataModel>> = flow {
+        emit(ResultState.Loading)
+        try {
+            val response = apiService.getPenduduk()
+            emit(ResultState.Success(response))
+        } catch (exc: HttpException) {
+            emit(ResultState.Error(exc.message.toString()))
+        }
+    }.flowOn(Dispatchers.IO)
 
-    suspend fun addNewPenduduk(
+
+    suspend fun getDetailPenduduk(nik: String): Flow<ResultState<DetailPendudukResponse>> = flow {
+        emit(ResultState.Loading)
+        try {
+            val response = apiService.getDetailPenduduk(nik)
+            emit(ResultState.Success(response))
+        } catch (exc: HttpException) {
+            emit(ResultState.Error(exc.message.toString()))
+        }
+    }.flowOn(Dispatchers.IO)
+
+
+    suspend fun postPenduduk(
         nik: String,
         nama: String,
         sex: String,
@@ -51,9 +69,10 @@ class SnapCencusRepository(
         namaAyah: String,
         namaIbu: String,
         hubungWarga: String
-    ): Flow<Result<CommonResponse?>> {
-        return wrapWithFlow(
-            apiService::createPenduduk.invoke(
+    ): Flow<ResultState<CommonResponse>> = flow {
+        emit(ResultState.Loading)
+        try {
+            val response = apiService.postPenduduk(
                 nik,
                 nama,
                 sex,
@@ -75,10 +94,17 @@ class SnapCencusRepository(
                 namaIbu,
                 hubungWarga
             )
-        )
-    }
 
-    suspend fun updateDataPenduduk(
+            emit(ResultState.Success(response))
+        } catch (exc: HttpException) {
+            val errorBody = exc.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, CommonResponse::class.java)
+            emit(ResultState.Error(errorResponse.pesan))
+        }
+
+    }.flowOn(Dispatchers.IO)
+
+    suspend fun updatePenduduk(
         nik: String,
         nama: String,
         statusKtp: String,
@@ -91,7 +117,6 @@ class SnapCencusRepository(
         jenisKelamin: String,
         agama: String,
         statusPenduduk: String,
-
         noAktaLahir: String,
         tempatLahir: String,
         tanggalLahir: String,
@@ -102,23 +127,19 @@ class SnapCencusRepository(
         penolongKelahiran: String,
         beratLahir: String,
         panjangLahir: String,
-
         pendidikan: String,
         pendidikanSedang: String,
         pekerjaan: String,
-
         suku: String,
         wargaNegara: String,
         noPaspor: String,
         tanggalAkhirPaspor: String,
         noKitas: String,
         negaraAsal: String,
-
         nikAyah: String,
         namaAyah: String,
         nikIbu: String,
         namaIbu: String,
-
         alamat: String,
         dusun: String,
         rw: String,
@@ -128,13 +149,11 @@ class SnapCencusRepository(
         email: String,
         telegram: String,
         caraHubungWarga: String,
-
         statusKawin: String,
         noAktaNikah: String,
         tanggalKawin: String,
         noAktaCerai: String,
         tanggalCerai: String,
-
         golDarah: String,
         cacatId: String,
         sakitMenahun: String,
@@ -143,12 +162,12 @@ class SnapCencusRepository(
         noAsuransi: String,
         noBpjs: String,
         statusHamil: String,
-
         bacaHuruf: String,
         keterangan: String,
-    ): Flow<Result<CommonResponse?>> {
-        return wrapWithFlow(
-            apiService::updatePenduduk.invoke(
+    ): Flow<ResultState<CommonResponse>> = flow {
+        emit(ResultState.Loading)
+        try {
+            val response = apiService.updatePenduduk(
                 nik,
                 nama,
                 statusKtp,
@@ -161,7 +180,6 @@ class SnapCencusRepository(
                 jenisKelamin,
                 agama,
                 statusPenduduk,
-
                 noAktaLahir,
                 tempatLahir,
                 tanggalLahir,
@@ -172,23 +190,19 @@ class SnapCencusRepository(
                 penolongKelahiran,
                 beratLahir,
                 panjangLahir,
-
                 pendidikan,
                 pendidikanSedang,
                 pekerjaan,
-
                 suku,
                 wargaNegara,
                 noPaspor,
                 tanggalAkhirPaspor,
                 noKitas,
                 negaraAsal,
-
                 nikAyah,
                 namaAyah,
                 nikIbu,
                 namaIbu,
-
                 alamat,
                 dusun,
                 rw,
@@ -198,13 +212,11 @@ class SnapCencusRepository(
                 email,
                 telegram,
                 caraHubungWarga,
-
                 statusKawin,
                 noAktaNikah,
                 tanggalKawin,
                 noAktaCerai,
                 tanggalCerai,
-
                 golDarah,
                 cacatId,
                 sakitMenahun,
@@ -213,27 +225,16 @@ class SnapCencusRepository(
                 noAsuransi,
                 noBpjs,
                 statusHamil,
-
                 bacaHuruf,
                 keterangan
             )
-        )
-    }
-
-    private fun <T> wrapWithFlow(function: Response<T>): Flow<Result<T?>> {
-        return flow {
-            emit(Result.Loading())
-            try {
-                if (function.isSuccessful) {
-                    emit(Result.Success(function.body()))
-                } else {
-                    emit(Result.Error(throwable = Throwable(function.message())))
-                }
-            } catch (e: Exception) {
-                emit(Result.Error(throwable = e))
-            }
+            emit(ResultState.Success(response))
+        } catch (exc: HttpException) {
+            val errorBody = exc.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, CommonResponse::class.java)
+            emit(ResultState.Error(errorResponse.pesan))
         }
-    }
+    }.flowOn(Dispatchers.IO)
 
 
     companion object {

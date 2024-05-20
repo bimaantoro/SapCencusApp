@@ -19,6 +19,17 @@
         android:theme="@style/Theme.SnapCencus"
         tools:targetApi="31">
         <activity
+            android:name=".ui.user.main.MainUserActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity
             android:name=".ui.user.list.PendudukListActivity"
             android:exported="false" />
         <activity
@@ -57,15 +68,6 @@
         <activity
             android:name=".ui.user.ktp.result.KtpResultActivity"
             android:exported="true" />
-        <activity
-            android:name=".ui.user.UserActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false" />

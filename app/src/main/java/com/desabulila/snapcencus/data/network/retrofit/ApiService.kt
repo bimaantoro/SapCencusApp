@@ -1,6 +1,6 @@
 package com.desabulila.snapcencus.data.network.retrofit
 
-import com.desabulila.snapcencus.data.model.BaseModel
+import com.desabulila.snapcencus.data.model.ListDataModel
 import com.desabulila.snapcencus.data.network.response.CommonResponse
 import com.desabulila.snapcencus.data.network.response.DetailPendudukResponse
 import retrofit2.http.Field
@@ -13,10 +13,10 @@ interface ApiService {
 
 
     @GET("get.php?api_key=87Y78GF78SHFDSHFU")
-    suspend fun getBaseData(): BaseModel
+    suspend fun getBaseData(): ListDataModel
 
     @GET("get_penduduk.php?api_key=87Y78GF78SHFDSHFU")
-    suspend fun getPenduduk(): BaseModel
+    suspend fun getPenduduk(): ListDataModel
 
     @GET("get_penduduk_detail.php?api_key=87Y78GF78SHFDSHFU")
     suspend fun getDetailPenduduk(
@@ -25,7 +25,7 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("create_penduduk.php?api_key=87Y78GF78SHFDSHFU")
-    suspend fun createPenduduk(
+    suspend fun postPenduduk(
         @Field("nik") ktp: String,
         @Field("nama") nama: String,
         @Field("sex") sex: String,

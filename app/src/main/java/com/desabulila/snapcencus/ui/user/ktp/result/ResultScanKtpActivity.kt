@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.desabulila.snapcencus.data.Result
+import com.desabulila.snapcencus.data.ResultState
 import com.desabulila.snapcencus.databinding.ActivityResultScanKtpBinding
 import com.desabulila.snapcencus.helper.getKTP
 import com.desabulila.snapcencus.ui.ViewModelFactory
@@ -69,9 +69,9 @@ class ResultScanKtpActivity : AppCompatActivity(), DatePickerFragment.DialogDate
     private fun fetchDataPenduduk() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.result.collectLatest { result ->
+                viewModel.resultState.collectLatest { result ->
                     when (result) {
-                        is Result.Success -> {
+                        is ResultState.Success -> {
                             val jenisKelaminList = result.data?.jenisKelamin
                             val namaJenisKelaminList = jenisKelaminList?.map { it.nama } ?: listOf()
                             val idJenisKelaminList = jenisKelaminList?.map { it.id } ?: listOf()
@@ -96,8 +96,8 @@ class ResultScanKtpActivity : AppCompatActivity(), DatePickerFragment.DialogDate
 
                         }
 
-                        is Result.Error -> {}
-                        is Result.Loading -> {}
+                        is ResultState.Error -> {}
+                        is ResultState.Loading -> {}
                     }
 
                 }

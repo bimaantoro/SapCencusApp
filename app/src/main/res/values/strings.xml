@@ -1,10 +1,20 @@
 <resources>
     <string name="app_name">SnapCencus</string>
     <string name="welcome">Selamat Datang</string>
-    <string name="logo_bulila">Logo Bulila</string>
+
+    <string name="logo_bulila">Logo Desa Bulila</string>
+
     <string name="lihat_data">Lihat Data</string>
     <string name="scan_dokumen">Scan Dokumen</string>
     <string name="logout">Logout</string>
+
+    <string name="title_ocr">Gunakan OCR</string>
+    <string name="message_ocr">Apakah Anda ingin menggunakan OCR?</string>
+    <string name="ya">Ya</string>
+    <string name="input_manual">Tidak, Input Manual</string>
+    <string name="cancel">Batal</string>
+
+
     <string name="description_scan">Silahkan lakukan pemindaian dokumen berupa Kartu Tanda Penduduk (KTP).</string>
     <string name="ktp">Kartu Tanda Penduduk!</string>
     <string name="preview_gambar_ktp">Preview gambar KTP</string>
@@ -588,8 +598,8 @@
     <string name="search_nik">Cari NIK</string>
     <string name="nik_search">Periksa kembali NIK yang ingin Anda cari</string>
     <string name="cari">Cari</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
     <string name="tambah_user">Tambah User</string>
     <string name="nama_user">Nama User</string>
     <string name="pin">PIN</string>
@@ -597,6 +607,9 @@
     <string name="memproses_permintaan">Memproses permintaan</string>
     <string name="error_message">Gagal mengambil data</string>
     <string name="error_update_data">Data gagal diperbarui</string>
+
+
+    <string name="penduduk_list_title">Data Penduduk</string>
 
 
 </resources>

@@ -188,20 +188,20 @@ fun clearKTP(context: Context) {
 fun saveKK(context: Context, kkModel: KKModel) {
     val sharedPreferences = context.getSharedPreferences("KK", Context.MODE_PRIVATE)
     val editor = sharedPreferences.edit()
-    editor.putString("dataHubunganKeluarga", kkModel.hubungan_keluarga)
+    editor.putString("dataHubunganKeluarga", kkModel.hubunganKeluarga)
     editor.putString("dataPendidikan", kkModel.pendidikan)
-    editor.putString("dataNamaAyah", kkModel.nama_ayah)
-    editor.putString("dataNamaIbu", kkModel.nama_ibu)
+    editor.putString("dataNamaAyah", kkModel.namaAyah)
+    editor.putString("dataNamaIbu", kkModel.namaIbu)
     editor.apply()
 }
 
 fun getKK(context: Context): KKModel {
     val sharedPreferences = context.getSharedPreferences("KK", Context.MODE_PRIVATE)
     val kkModel = KKModel()
-    kkModel.hubungan_keluarga = sharedPreferences.getString("dataHubunganKeluarga", "")
+    kkModel.hubunganKeluarga = sharedPreferences.getString("dataHubunganKeluarga", "")
     kkModel.pendidikan = sharedPreferences.getString("dataPendidikan", "")
-    kkModel.nama_ayah = sharedPreferences.getString("dataNamaAyah", "")
-    kkModel.nama_ibu = sharedPreferences.getString("dataNamaIbu", "")
+    kkModel.namaAyah = sharedPreferences.getString("dataNamaAyah", "")
+    kkModel.namaIbu = sharedPreferences.getString("dataNamaIbu", "")
     return kkModel
 }
 

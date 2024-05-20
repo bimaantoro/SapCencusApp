@@ -2,7 +2,7 @@ package com.desabulila.snapcencus.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class BaseModel(
+data class ListDataModel(
     @field:SerializedName("dusun")
     val dusun: List<DusunModel> = emptyList(),
 

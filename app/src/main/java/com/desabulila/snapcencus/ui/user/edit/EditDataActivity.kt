@@ -17,10 +17,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.desabulila.snapcencus.R
-import com.desabulila.snapcencus.data.Result
+import com.desabulila.snapcencus.data.ResultState
 import com.desabulila.snapcencus.databinding.ActivityEditDataBinding
 import com.desabulila.snapcencus.ui.ViewModelFactory
-import com.desabulila.snapcencus.ui.user.UserActivity
+import com.desabulila.snapcencus.ui.user.main.MainUserActivity
 import com.desabulila.snapcencus.utils.DatePickerFragment
 import com.desabulila.snapcencus.utils.EXP_PASPOR_DATE_PICKER
 import com.desabulila.snapcencus.utils.EXTRA_RESULT_NIK
@@ -92,9 +92,9 @@ class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListe
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.result.collectLatest { result ->
+                viewModel.resultState.collectLatest { result ->
                     when (result) {
-                        is Result.Loading -> {
+                        is ResultState.Loading -> {
                             binding.apply {
                                 contentProses.contentLayoutProses.visibility = View.VISIBLE
                                 contentEditData.editDataLayout.visibility = View.GONE
@@ -102,7 +102,7 @@ class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListe
                             }
                         }
 
-                        is Result.Success -> {
+                        is ResultState.Success -> {
                             binding.apply {
                                 contentEditData.editDataLayout.visibility = View.VISIBLE
                                 contentProses.contentLayoutProses.visibility = View.GONE
@@ -268,14 +268,14 @@ class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListe
 
                         }
 
-                        is Result.Error -> {
+                        is ResultState.Error -> {
                             binding.apply {
                                 contentProses.contentLayoutProses.visibility = View.GONE
                                 contentEditData.editDataLayout.visibility = View.GONE
                             }
 
                             binding.contentErrorMessage.tvErrorMessage.visibility = View.VISIBLE
-                            binding.contentErrorMessage.tvErrorMessage.text = result.error?.message
+                            binding.contentErrorMessage.tvErrorMessage.text = result.error
                         }
                     }
                 }
@@ -638,18 +638,17 @@ class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListe
     private fun updatePendudukResult() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.updatePendudukResult.collectLatest { result ->
-                    Log.d("EditDataActivity", "updatePendudukResult: ${result.data}")
+                viewModel.updatePendudukResultState.collectLatest { result ->
                     when (result) {
-                        is Result.Loading -> {
+                        is ResultState.Loading -> {
                             binding.contentProses.contentLayoutProses.visibility = View.VISIBLE
                         }
 
-                        is Result.Success -> {
+                        is ResultState.Success -> {
                             if (result.data?.kode == 1) {
                                 binding.contentProses.contentLayoutProses.visibility = View.GONE
                                 showToast(result.data.pesan)
-                                val intent = Intent(this@EditDataActivity, UserActivity::class.java)
+                                val intent = Intent(this@EditDataActivity, MainUserActivity::class.java)
                                 startActivity(intent)
                             } else {
                                 binding.contentProses.contentLayoutProses.visibility = View.GONE
@@ -658,9 +657,9 @@ class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListe
 
                         }
 
-                        is Result.Error -> {
+                        is ResultState.Error -> {
                             binding.contentProses.contentLayoutProses.visibility = View.GONE
-                            showToast(result.data?.pesan.toString())
+                            // showToast(result.pesan.toString())
 
                         }
                     }

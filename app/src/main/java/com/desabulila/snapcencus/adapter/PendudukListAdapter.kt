@@ -1,7 +1,6 @@
 package com.desabulila.snapcencus.adapter
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -14,8 +13,6 @@ import com.desabulila.snapcencus.utils.EXTRA_RESULT_NIK
 
 class PendudukListAdapter :
     ListAdapter<PendudukModel, PendudukListAdapter.MyViewHolder>(DIFF_CALLBACK) {
-
-    private var penduduk: MutableList<PendudukModel> = mutableListOf()
 
 
     override fun onCreateViewHolder(
@@ -47,37 +44,17 @@ class PendudukListAdapter :
         }
     }
 
-    fun filterData(query: String) {
-        if (query.isNotEmpty()) {
-            val lowerCaseQuery = query.lowercase()
-            for (data in penduduk) {
-                val nama = data.nama.lowercase().contains(lowerCaseQuery)
-                val nik = data.nik.lowercase().contains(lowerCaseQuery)
-
-                if (nama == true || nik == true) {
-                    penduduk.add(data)
-                    Log.d("PendudukListAdapter: ", data.nama.toString())
-                }
-            }
-        } else {
-            penduduk.clear()
-            penduduk.addAll(penduduk)
-        }
-
-        notifyDataSetChanged()
-    }
-
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<PendudukModel>() {
             override fun areItemsTheSame(
                 oldItem: PendudukModel,
                 newItem: PendudukModel
-            ): Boolean = oldItem == newItem
+            ): Boolean = oldItem.nik == newItem.nik
 
             override fun areContentsTheSame(
                 oldItem: PendudukModel,
                 newItem: PendudukModel
-            ): Boolean = oldItem.nik == newItem.nik
+            ): Boolean = oldItem == newItem
 
         }
     }
