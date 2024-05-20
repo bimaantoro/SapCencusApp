@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="identitas_el">
+        <item>@string/pilih_identitas_el</item>
+        <item>@string/belum</item>
+        <item>@string/ktp_el</item>
+        <item>@string/kia</item>
+    </string-array>
+
+    <string-array name="status_rekam">
+        <item>@string/pilih_status_rekam</item>
+        <item>@string/belum_wajib</item>
+        <item>@string/belum_rekam</item>
+        <item>@string/sudah_rekam</item>
+        <item>@string/card_printed</item>
+        <item>@string/print_ready_record</item>
+        <item>@string/card_shipped</item>
+        <item>@string/send_for_printing</item>
+        <item>@string/card_issued</item>
+    </string-array>
+
+    <string-array name="hubungan_keluarga">
+        <item>@string/pilih_hubungan_keluarga</item>
+        <item>@string/kepala_keluarga</item>
+        <item>@string/suami</item>
+        <item>@string/istri</item>
+        <item>@string/anak</item>
+        <item>@string/menantu</item>
+        <item>@string/cucu</item>
+        <item>@string/orang_tua</item>
+        <item>@string/mertua</item>
+        <item>@string/famili_lain</item>
+        <item>@string/pembantu</item>
+        <item>@string/lainnya</item>
+    </string-array>
+
+    <string-array name="jenis_kelamin">
+        <item>@string/pilih_jenis_kelamin</item>
+        <item>@string/laki_laki</item>
+        <item>@string/perempuan</item>
+    </string-array>
+
+    <string-array name="agama">
+        <item>@string/pilih_agama</item>
+        <item>@string/islam</item>
+        <item>@string/kristen</item>
+        <item>@string/katholik</item>
+        <item>@string/hindu</item>
+        <item>@string/budha</item>
+        <item>@string/khonghucu</item>
+        <item>@string/kepercayaan_terhadap_tuhan_yme</item>
+    </string-array>
+
+    <string-array name="status_penduduk">
+        <item>@string/pilih_status</item>
+        <item>@string/tetap</item>
+        <item>@string/tidak_tetap</item>
+    </string-array>
+
+    <string-array name="tempat_lahir">
+        <item>@string/pilih_tempat_lahir</item>
+        <item>@string/rs_rb</item>
+        <item>@string/puskesmas</item>
+        <item>@string/polindes</item>
+        <item>@string/rumah</item>
+        <item>@string/lainnya</item>
+    </string-array>
+
+    <string-array name="jenis_kelahiran">
+        <item>@string/pilih_jenis_kelahiran</item>
+        <item>@string/tunggal</item>
+        <item>@string/kembar_2</item>
+        <item>@string/kembar_3</item>
+        <item>@string/kembar_4</item>
+
+    </string-array>
+
+    <string-array name="penolong_kelahiran">
+        <item>@string/pilih_penolong_kelahiran</item>
+        <item>@string/dokter</item>
+        <item>@string/bidan_perawat</item>
+        <item>@string/dukun</item>
+        <item>@string/lainnya</item>
+
+    </string-array>
+
+    <string-array name="pendidikan">
+        <item>@string/pilih_pendidikan</item>
+        <item>@string/belum_sekolah</item>
+        <item>@string/belum_tamat_sd</item>
+        <item>@string/tamat_sd</item>
+        <item>@string/sltp</item>
+        <item>@string/slta</item>
+        <item>@string/diploma_1_dan_2</item>
+        <item>@string/diploma_3</item>
+        <item>@string/strata_1</item>
+        <item>@string/strata_2</item>
+        <item>@string/strata_3</item>
+
+    </string-array>
+
+    <string-array name="pendidikan_sedang_dijalani">
+        <item>@string/pilih_pendidikan</item>
+        <item>@string/belum_masuk_tk</item>
+        <item>@string/sedang_tk</item>
+        <item>@string/tidak_pernah_sekolah</item>
+        <item>@string/sedang_sd</item>
+        <item>@string/tidak_tamat_sd</item>
+        <item>@string/sedang_sltp</item>
+        <item>@string/tidak_tamat_sltp</item>
+        <item>@string/sedang_slta</item>
+        <item>@string/tidak_tamat_slta</item>
+        <item>@string/sedang_d1</item>
+        <item>@string/sedang_d2</item>
+        <item>@string/sedang_d3</item>
+        <item>@string/sedang_slb_a</item>
+        <item>@string/sedang_slb_b</item>
+        <item>@string/sedang_slb_c</item>
+        <item>@string/tidak_dapat_membaca</item>
+        <item>@string/tidak_sedang_sekolah</item>
+
+    </string-array>
+
+    <string-array name="pekerjaan">
+        <item>@string/pilih_pekerjaan</item>
+        <item>@string/tidak_bekerja</item>
+        <item>@string/irt</item>
+        <item>@string/pelajar</item>
+        <item>@string/pensiunan</item>
+        <item>@string/pns</item>
+        <item>@string/tni</item>
+        <item>@string/polri</item>
+        <item>@string/perdagangan</item>
+        <item>@string/petani</item>
+        <item>@string/peternak</item>
+        <item>@string/nelayan</item>
+        <item>@string/industri</item>
+        <item>@string/konstruksi</item>
+        <item>@string/transportasi</item>
+        <item>@string/karyawan_swasta</item>
+        <item>@string/karyawan_bumn</item>
+        <item>@string/karyawan_bumd</item>
+        <item>@string/honorer</item>
+        <item>@string/buruh_harian</item>
+        <item>@string/buruh_tani</item>
+        <item>@string/buruh_nelayan</item>
+        <item>@string/buruh_peternak</item>
+        <item>@string/pembantu_rt</item>
+        <item>@string/tukang_cukur</item>
+        <item>@string/tukang_listrik</item>
+        <item>@string/tukang_batu</item>
+        <item>@string/tukang_kayu</item>
+        <item>@string/tukar_sol</item>
+        <item>@string/tukang_las</item>
+        <item>@string/tukang_jahit</item>
+        <item>@string/tukang_gigi</item>
+        <item>@string/penata_rias</item>
+        <item>@string/penata_busana</item>
+        <item>@string/penata_rambut</item>
+        <item>@string/mekanik</item>
+        <item>@string/seniman</item>
+        <item>@string/tabib</item>
+        <item>@string/paraji</item>
+        <item>@string/perancang_busana</item>
+        <item>@string/penerjemah</item>
+        <item>@string/imam_masjid</item>
+        <item>@string/pendeta</item>
+        <item>@string/pastor</item>
+        <item>@string/wartawan</item>
+        <item>@string/ustadz</item>
+        <item>@string/juru_masak</item>
+        <item>@string/promotor_acara</item>
+        <item>@string/dpr</item>
+        <item>@string/dpd</item>
+        <item>@string/bpk</item>
+        <item>@string/presiden</item>
+        <item>@string/wapres</item>
+        <item>@string/mk</item>
+        <item>@string/mentri</item>
+        <item>@string/dubes</item>
+        <item>@string/gub</item>
+        <item>@string/wagub</item>
+        <item>@string/bupati</item>
+        <item>@string/wakil_bupati</item>
+        <item>@string/walikota</item>
+        <item>@string/wakil_walikota</item>
+        <item>@string/dprd_provinsi</item>
+        <item>@string/dprd_kota</item>
+        <item>@string/dosen</item>
+        <item>@string/guru</item>
+        <item>@string/pilot</item>
+        <item>@string/pengacara</item>
+        <item>@string/notaris</item>
+        <item>@string/arsitek</item>
+        <item>@string/akuntan</item>
+        <item>@string/konsultan</item>
+        <item>@string/bidan</item>
+        <item>@string/perawat</item>
+        <item>@string/apoteker</item>
+        <item>@string/psikolog</item>
+        <item>@string/penyiar_tv</item>
+        <item>@string/penyiar_radio</item>
+        <item>@string/pelaut</item>
+        <item>@string/peneliti</item>
+        <item>@string/sopir</item>
+        <item>@string/pialang</item>
+        <item>@string/paranormal</item>
+        <item>@string/pedagang</item>
+        <item>@string/perangkat_desa</item>
+        <item>@string/kepala_desa</item>
+        <item>@string/biarawati</item>
+        <item>@string/wiraswasta</item>
+        <item>@string/lainnya</item>
+    </string-array>
+
+    <string-array name="suku">
+        <item>@string/pilih_suku</item>
+        <item>@string/aceh</item>
+        <item>@string/alas</item>
+        <item>@string/alor</item>
+        <item>@string/ambon</item>
+        <item>@string/ampana</item>
+        <item>@string/anak_dalam</item>
+        <item>@string/aneuk_jamee</item>
+        <item>@string/hadhrami</item>
+        <item>@string/aru</item>
+        <item>@string/asmat</item>
+        <item>@string/baree</item>
+        <item>@string/banten</item>
+        <item>@string/besemah</item>
+        <item>@string/bali</item>
+        <item>@string/balantak</item>
+        <item>@string/banggai</item>
+        <item>@string/baduy</item>
+        <item>@string/bajau</item>
+        <item>@string/banjar</item>
+        <item>@string/batak</item>
+        <item>@string/batak_karo</item>
+        <item>@string/mandaling</item>
+        <item>@string/angkola</item>
+        <item>@string/toba</item>
+        <item>@string/pakpak</item>
+        <item>@string/simalungun</item>
+        <item>@string/batin</item>
+        <item>@string/bawean</item>
+        <item>@string/bentong</item>
+        <item>@string/berau</item>
+        <item>@string/betawi</item>
+        <item>@string/bima</item>
+        <item>@string/boti</item>
+        <item>@string/bolang_mongondow</item>
+        <item>@string/bugis</item>
+        <item>@string/bungku</item>
+        <item>@string/buru</item>
+        <item>@string/buol</item>
+        <item>@string/bulungan</item>
+        <item>@string/buton</item>
+        <item>@string/bonai</item>
+        <item>@string/cham</item>
+        <item>@string/cirebon</item>
+        <item>@string/damal</item>
+        <item>@string/dampeles</item>
+        <item>@string/dani</item>
+        <item>@string/dairi</item>
+        <item>@string/daya</item>
+        <item>@string/dayak</item>
+        <item>@string/dompu</item>
+        <item>@string/donggo</item>
+        <item>@string/dongga</item>
+        <item>@string/dondo</item>
+        <item>@string/duri</item>
+        <item>@string/eropa</item>
+        <item>@string/flores</item>
+        <item>@string/lamaholot</item>
+        <item>@string/gorontalo</item>
+        <item>@string/gumai</item>
+        <item>@string/india</item>
+        <item>@string/jawa</item>
+        <item>@string/jambi</item>
+        <item>@string/jepang</item>
+        <item>@string/kei</item>
+        <item>@string/kaili</item>
+        <item>@string/kampar</item>
+        <item>@string/kaur</item>
+        <item>@string/kayu_agung</item>
+        <item>@string/kerinci</item>
+        <item>@string/komering</item>
+        <item>@string/konjo_pengunungan</item>
+        <item>@string/konjo_pesisir</item>
+        <item>@string/koto</item>
+        <item>@string/kubu</item>
+        <item>@string/kulawi</item>
+        <item>@string/kutai</item>
+        <item>@string/kluet</item>
+        <item>@string/korea</item>
+        <item>@string/krui</item>
+        <item>@string/laut</item>
+        <item>@string/lampung</item>
+        <item>@string/lematang</item>
+        <item>@string/lembak</item>
+        <item>@string/lintang</item>
+        <item>@string/lom</item>
+        <item>@string/lore</item>
+        <item>@string/lubu</item>
+        <item>@string/moronene</item>
+        <item>@string/madura</item>
+        <item>@string/makassar</item>
+        <item>@string/mamasa</item>
+        <item>@string/manda</item>
+        <item>@string/melayu</item>
+        <item>@string/mentawai</item>
+        <item>@string/minahasa</item>
+        <item>@string/ponosakan</item>
+        <item>@string/minangkabau</item>
+        <item>@string/mongondow</item>
+        <item>@string/mori</item>
+        <item>@string/muko_muko</item>
+        <item>@string/muna</item>
+        <item>@string/muyu</item>
+        <item>@string/mekongga</item>
+        <item>@string/moro</item>
+        <item>@string/nias</item>
+        <item>@string/ngada</item>
+        <item>@string/osing</item>
+        <item>@string/ogan</item>
+        <item>@string/ocu</item>
+        <item>@string/padoe</item>
+        <item>@string/papua</item>
+        <item>@string/palembang</item>
+        <item>@string/pamona</item>
+        <item>@string/pesisi</item>
+        <item>@string/pasir</item>
+        <item>@string/pubian</item>
+        <item>@string/pattae</item>
+        <item>@string/pakistani</item>
+        <item>@string/peranakan</item>
+        <item>@string/rawa</item>
+        <item>@string/rejang</item>
+        <item>@string/rote</item>
+        <item>@string/rongga</item>
+        <item>@string/rohingya</item>
+        <item>@string/sabu</item>
+        <item>@string/saluan</item>
+        <item>@string/sambas</item>
+        <item>@string/samin</item>
+        <item>@string/sangi</item>
+        <item>@string/sasak</item>
+        <item>@string/sekak_bangka</item>
+        <item>@string/sekayu</item>
+        <item>@string/semendo</item>
+        <item>@string/serawai</item>
+        <item>@string/simeulue</item>
+        <item>@string/sigulai</item>
+        <item>@string/suluk</item>
+        <item>@string/sumbawa</item>
+        <item>@string/sumba</item>
+        <item>@string/sunda</item>
+        <item>@string/sungkai</item>
+        <item>@string/talau</item>
+        <item>@string/talang_mamak</item>
+        <item>@string/tamiang</item>
+        <item>@string/tengger</item>
+        <item>@string/ternate</item>
+        <item>@string/tidore</item>
+        <item>@string/tidung</item>
+        <item>@string/timor</item>
+        <item>@string/tionghoa</item>
+        <item>@string/tojo</item>
+        <item>@string/toraja</item>
+        <item>@string/tolaki</item>
+        <item>@string/toli_toli</item>
+        <item>@string/tomini</item>
+        <item>@string/una_una</item>
+        <item>@string/ulu</item>
+        <item>@string/wolio</item>
+
+    </string-array>
+
+    <string-array name="kewarnegaraan">
+        <item>@string/pilih_kewarganegaraan</item>
+        <item>@string/wni</item>
+        <item>@string/wna</item>
+        <item>@string/dua_kewarganegaraan</item>
+
+    </string-array>
+
+    <string-array name="dusun">
+        <item>@string/pilih_dusun</item>
+        <item>@string/dusun_1</item>
+        <item>@string/dusun_2</item>
+        <item>@string/dusun_3</item>
+        <item>@string/dusun_4</item>
+        <item>@string/dusun_5</item>
+
+    </string-array>
+
+    <string-array name="cara_hubung_warga">
+        <item>@string/pilih_cara_hubung_warga</item>
+        <item>@string/email</item>
+        <item>@string/telegram</item>
+
+    </string-array>
+
+    <string-array name="status_kawin">
+        <item>@string/pilih_status_kawin</item>
+        <item>@string/belum_kawin</item>
+        <item>@string/kawin</item>
+        <item>@string/cerai_hidup</item>
+        <item>@string/cerai_mati</item>
+
+    </string-array>
+
+    <string-array name="golongan_darah">
+        <item>@string/pilih_golongan_darah</item>
+        <item>@string/gol_a</item>
+        <item>@string/gol_b</item>
+        <item>@string/gol_ab</item>
+        <item>@string/gol_o</item>
+        <item>@string/gol_a_plus</item>
+        <item>@string/gol_a_min</item>
+        <item>@string/gol_b_plus</item>
+        <item>@string/gol_b_min</item>
+        <item>@string/gol_ab_plus</item>
+        <item>@string/gol_ab_min</item>
+        <item>@string/gol_o_plus</item>
+        <item>@string/gol_o_min</item>
+        <item>@string/tidak_tahu</item>
+
+    </string-array>
+
+    <string-array name="jenis_cacat">
+        <item>@string/pilih_jenis_cacat</item>
+        <item>@string/cacat_fisik</item>
+        <item>@string/cacat_netra</item>
+        <item>@string/cacat_rungu</item>
+        <item>@string/cacat_mental</item>
+        <item>@string/cacat_fisik_mental</item>
+        <item>@string/cacat_lainnya</item>
+        <item>@string/tidak_cacat</item>
+
+    </string-array>
+
+    <string-array name="sakit_menahun">
+        <item>@string/pilih_sakit_menahun</item>
+        <item>@string/jantung</item>
+        <item>@string/lever</item>
+        <item>@string/paru_paru</item>
+        <item>@string/kanker</item>
+        <item>@string/stroke</item>
+        <item>@string/diabetes_melitus</item>
+        <item>@string/ginjal</item>
+        <item>@string/malaria</item>
+        <item>@string/lepra</item>
+        <item>@string/hiv_aids</item>
+        <item>@string/gila_stres</item>
+        <item>@string/tbc</item>
+        <item>@string/asthma</item>
+        <item>@string/tidak_sakit</item>
+
+    </string-array>
+
+    <string-array name="cara_kb">
+        <item>@string/pilih_cara_kb</item>
+        <item>@string/pilo</item>
+        <item>@string/iud</item>
+        <item>@string/suntik</item>
+        <item>@string/kondom</item>
+        <item>@string/susuk_kb</item>
+        <item>@string/sterilisasi_wanita</item>
+        <item>@string/sterilisasi_pria</item>
+        <item>@string/tidak_menggunakan</item>
+
+    </string-array>
+
+    <string-array name="asuransi">
+        <item>@string/pilih_asuransi</item>
+        <item>@string/belum_punya</item>
+        <item>@string/bpjs_pbi</item>
+        <item>@string/bpjs_non_pbi</item>
+        <item>@string/asuransi_lainnya</item>
+
+    </string-array>
+
+    <string-array name="status_kehamilan">
+        <item>@string/pilih_status_kehamilan</item>
+        <item>@string/hamil</item>
+        <item>@string/tidak_hamil</item>
+
+    </string-array>
+
+    <string-array name="bahasa">
+        <item>@string/pilih_isian</item>
+        <item>@string/latin</item>
+        <item>@string/daerah</item>
+        <item>@string/arab</item>
+        <item>@string/arab_latin</item>
+        <item>@string/arab_daerah</item>
+        <item>@string/arab_latin_daerah</item>
+
+    </string-array>
+
+</resources>

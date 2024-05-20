@@ -1,15 +1,19 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.SapCencus" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.SnapCencus" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.SapCencus" parent="Base.Theme.SapCencus" />
+    <style name="Theme.SnapCencus" parent="Base.Theme.SnapCencus" />
 
     <style name="roundCorner" parent="">
         <item name="cornerSize">20%</item>
     </style>
+
+    <style name="Theme.SnapCencus.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.SnapCencus.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
     <style name="rounded8">

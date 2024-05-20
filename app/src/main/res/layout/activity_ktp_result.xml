@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.user.ktp.KtpResultActivity">
+    tools:context=".ui.user.ktp.result.KtpResultActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -44,7 +44,7 @@
 
         <include
             android:id="@+id/lytKtpResult"
-            layout="@layout/content_ktp_result"
+            layout="@layout/ly_ktp_result"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"

@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -15,10 +16,34 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SapCencus"
+        android:theme="@style/Theme.SnapCencus"
         tools:targetApi="31">
         <activity
-            android:name=".ui.user.ktp.KtpCameraActivity"
+            android:name=".ui.user.list.PendudukListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.ktp.result.ResultScanKtpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.ktp.scan.ScanKtpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.logout.LogoutUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.search.SearchPendudukActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.pin.PinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.admin.AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.edit.EditDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.ktp.camera.KtpCameraActivity"
             android:exported="false" />
         <activity
             android:name=".ui.user.kk.KKResultActivity"
@@ -30,8 +55,8 @@
             android:name=".ui.user.ktp.KtpScanActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.user.ktp.KtpResultActivity"
-            android:exported="false" />
+            android:name=".ui.user.ktp.result.KtpResultActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.user.UserActivity"
             android:exported="true">
