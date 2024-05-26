@@ -2,23 +2,42 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.user.ktp.ScanKtpFragment">
+    tools:context=".ui.user.ocr.ktp.KtpOcrActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/ktp_ocr_screen" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <TextView
         android:id="@+id/headerTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:text="@string/ktp"
         android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/gHorizontal1" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <TextView
         android:id="@+id/descTv"
@@ -28,57 +47,67 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:text="@string/description_scan"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerTv" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/previewIv"
+        android:id="@+id/ivPreviewKtp"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="230dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
+        android:background="@color/placeholder_gray"
         android:contentDescription="@string/preview_gambar_ktp"
-        android:padding="14dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/gHorizontal2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descTv"
-        app:shapeAppearanceOverlay="@style/rounded8"
-        app:srcCompat="@drawable/ic_placeholder" />
+        app:shapeAppearance="@style/RoundShapeImage" />
+
+    <TextView
+        android:id="@+id/tvPreviewKtpLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="4dp"
+        android:text="@string/preview_ktp_label"
+        android:textColor="@color/black"
+        app:drawableStartCompat="@drawable/ic_photo_library"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPreviewKtp"
+        app:layout_constraintEnd_toEndOf="@+id/ivPreviewKtp"
+        app:layout_constraintStart_toStartOf="@+id/ivPreviewKtp"
+        app:layout_constraintTop_toTopOf="@+id/ivPreviewKtp" />
 
     <Button
         android:id="@+id/btnOpenCamera"
+        style="?attr/materialButtonOutlinedStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:backgroundTint="@color/gray"
-        android:padding="14dp"
+        android:layout_marginEnd="32dp"
+        android:padding="8dp"
         android:text="@string/open_camera"
-        app:layout_constraintEnd_toStartOf="@+id/gVertical"
+        app:layout_constraintEnd_toStartOf="@+id/btnOpenGallery"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/previewIv"
-        app:shapeAppearance="@style/roundCorner" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPreviewKtp"
+        app:shapeAppearance="@style/RoundShapeButton" />
 
     <Button
         android:id="@+id/btnOpenGallery"
+        style="?attr/materialButtonOutlinedStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginEnd="24dp"
-        android:backgroundTint="@color/gray"
-        android:padding="14dp"
+        android:padding="8dp"
         android:text="@string/open_gallery"
+        app:layout_constraintBottom_toBottomOf="@+id/btnOpenCamera"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/gVertical"
-        app:layout_constraintTop_toBottomOf="@+id/previewIv"
-        app:shapeAppearance="@style/roundCorner" />
+        app:layout_constraintStart_toEndOf="@+id/btnOpenCamera"
+        app:layout_constraintTop_toTopOf="@+id/btnOpenCamera"
+        app:shapeAppearance="@style/RoundShapeButton" />
 
     <Button
         android:id="@+id/btnUploadKtp"
@@ -86,37 +115,27 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/primary"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/green"
         android:padding="16dp"
         android:text="@string/scan_ktp"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:shapeAppearance="@style/roundCorner" />
+        app:shapeAppearance="@style/RoundShapeButton" />
 
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gHorizontal1"
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gHorizontal2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gVertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

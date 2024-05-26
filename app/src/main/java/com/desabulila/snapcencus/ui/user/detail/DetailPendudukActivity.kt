@@ -1,9 +1,8 @@
-package com.desabulila.snapcencus.ui.user.edit
+package com.desabulila.snapcencus.ui.user.detail
 
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
@@ -11,14 +10,14 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.desabulila.snapcencus.R
 import com.desabulila.snapcencus.data.ResultState
-import com.desabulila.snapcencus.databinding.ActivityEditDataBinding
+import com.desabulila.snapcencus.databinding.ActivityDetailPendudukBinding
 import com.desabulila.snapcencus.ui.ViewModelFactory
 import com.desabulila.snapcencus.ui.user.main.MainUserActivity
 import com.desabulila.snapcencus.utils.DatePickerFragment
@@ -29,261 +28,39 @@ import com.desabulila.snapcencus.utils.TANGGAL_CERAI_DATE_PICKER
 import com.desabulila.snapcencus.utils.TANGGAL_KAWIN_DATE_PICKER
 import com.desabulila.snapcencus.utils.TANGGAL_LAHIR_DATE_PICKER
 import com.desabulila.snapcencus.utils.TimePickerFragment
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListener,
+class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDateListener,
     TimePickerFragment.DialogTimeListener {
 
-    private lateinit var binding: ActivityEditDataBinding
+    private val binding: ActivityDetailPendudukBinding by lazy {
+        ActivityDetailPendudukBinding.inflate(layoutInflater)
+    }
 
-    private val viewModel by viewModels<EditDataViewModel> {
+    private val viewModel by viewModels<DetailPendudukViewModel> {
         ViewModelFactory.getInstance(this)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityEditDataBinding.inflate(layoutInflater)
+        enableEdgeToEdge()
         setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         setupAction()
-        setupData()
-        setupSpinnerData()
-        setupPostAction()
+        setupViewSpinner()
+        setupDetailDataPenduduk()
+        setupUpdatePenduduk()
+
     }
 
-    private fun setupAction() {
-        binding.contentEditData.lyContentDataDiri.btnTglPenerbitanKtp.setOnClickListener {
-            showDatePicker(PENERBITAN_KTP_DATE_PICKER)
-        }
-
-        binding.contentEditData.lyContentDataLahir.btnTglLahir.setOnClickListener {
-            showDatePicker(TANGGAL_LAHIR_DATE_PICKER)
-        }
-
-        binding.contentEditData.lyContentDataLahir.btnWaktuLahir.setOnClickListener {
-            showTimePicker(it)
-        }
-
-        binding.contentEditData.lyContentKewarganegaraan.btnExpPaspor.setOnClickListener {
-            showDatePicker(EXP_PASPOR_DATE_PICKER)
-        }
-
-
-        binding.contentEditData.lyContentKawin.btnTanggalKawin.setOnClickListener {
-            showDatePicker(TANGGAL_KAWIN_DATE_PICKER)
-        }
-
-        binding.contentEditData.lyContentKawin.btnTglCerai.setOnClickListener {
-            showDatePicker(TANGGAL_CERAI_DATE_PICKER)
-        }
-    }
-
-    private fun setupData() {
-        val nik = intent.getStringExtra(EXTRA_RESULT_NIK)
-
-        nik?.let {
-            viewModel.getDetailPenduduk(it)
-        }
-
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.resultState.collectLatest { result ->
-                    when (result) {
-                        is ResultState.Loading -> {
-                            binding.apply {
-                                contentProses.contentLayoutProses.visibility = View.VISIBLE
-                                contentEditData.editDataLayout.visibility = View.GONE
-                                contentErrorMessage.tvErrorMessage.visibility = View.GONE
-                            }
-                        }
-
-                        is ResultState.Success -> {
-                            binding.apply {
-                                contentEditData.editDataLayout.visibility = View.VISIBLE
-                                contentProses.contentLayoutProses.visibility = View.GONE
-                                contentErrorMessage.tvErrorMessage.visibility = View.GONE
-                            }
-
-                            val ktpEl = checkIsNull(result.data?.ktpEl)
-                            val statusRekam = checkIsNull(result.data?.statusRekam)
-                            val hubunganDalamKeluarga = checkIsNull(result.data?.kkLevel)
-                            val jenisKelamin = checkIsNull(result.data?.idSex)
-                            val agama = checkIsNull(result.data?.agamaId)
-                            val statusPenduduk = checkIsNull(result.data?.idStatus)
-
-                            val tempatDilahirkan = checkIsNull(result.data?.tempatDilahirkan)
-                            val jenisKelahiran = checkIsNull(result.data?.jenisKelahiran)
-                            val penolongKelahiran = checkIsNull(result.data?.penolongKelahiran)
-
-                            val pendidikan = checkIsNull(result.data?.pendidikanKkId)
-                            val pendidikanSedang = checkIsNull(result.data?.pendidikanSedangId)
-                            val pekerjaan = checkIsNull(result.data?.pekerjaanId)
-
-                            val suku = checkIsNull(result.data?.suku)
-                            val wargaNegara = checkIsNull(result.data?.warganegaraId)
-
-                            val dusun = result.data?.dusun
-                            val dusunArray = resources.getStringArray(R.array.dusun)
-                            val selectedDusunIndex = if (dusun in dusunArray) {
-                                dusunArray.indexOf(dusun)
-                            } else {
-                                0
-                            }
-
-                            val caraHubungWarga = result.data?.hubungWarga
-                            val caraHubungWargaArray =
-                                resources.getStringArray(R.array.cara_hubung_warga)
-                            val selectedCaraHubungIndex =
-                                if (caraHubungWarga in caraHubungWargaArray) {
-                                    caraHubungWargaArray.indexOf(caraHubungWarga)
-                                } else {
-                                    0
-                                }
-
-                            val statusKawin = checkIsNull(result.data?.statusKawin)
-
-                            val golonganDarah = checkIsNull(result.data?.golonganDarahId)
-                            val cacat = checkIsNull(result.data?.cacatId)
-                            val sakitMenahun = checkIsNull(result.data?.sakitMenahunId)
-                            val caraKB = checkIsNull(result.data?.caraKbId)
-                            val asuransi = checkIsNull(result.data?.idAsuransi)
-                            val hamil = checkIsNull(result.data?.hamil)
-
-                            val bahasa = checkIsNull(result.data?.bahasaId)
-
-                            // DATA DIRI
-                            binding.contentEditData.lyContentDataDiri.apply {
-                                edtNik.setText(nik)
-                                edtNama.setText(result.data?.nama)
-                                edtTagIdCard.setText(result.data?.tagIdCard)
-                                edtTmptPenerbitanKtp.setText(result.data?.tempatCetakKtp)
-                                edtNoKKSblm.setText(result.data?.noKkSebelumnya)
-
-                                tglPenerbitanKtpResult.text = result.data?.tanggalCetakKtp
-
-                                spinIdentitasEl.setSelection(ktpEl.toInt())
-                                spinStatusRekam.setSelection(statusRekam.toInt())
-                                spinHubKeluarga.setSelection(hubunganDalamKeluarga.toInt())
-                                spinJenisKelamin.setSelection(jenisKelamin.toInt())
-                                spinAgama.setSelection(agama.toInt())
-                                spinStatusPenduduk.setSelection(statusPenduduk.toInt())
-                            }
-
-                            // DATA KELAHIRAN
-                            binding.contentEditData.lyContentDataLahir.apply {
-                                edtNoAkta.setText(result.data?.aktaLahir)
-                                edtTempatLahir.setText(result.data?.tempatlahir)
-                                edtAnakKe.setText(result.data?.kelahiranAnakKe)
-                                edtBeratLahir.setText(result.data?.beratLahir)
-                                edtPanjangLahir.setText(result.data?.panjangLahir)
-
-
-                                tglLahirResult.text = result.data?.tanggallahir
-                                waktuLahirResult.text = result.data?.waktuLahir
-
-                                spinTempatDilahirkan.setSelection(tempatDilahirkan.toInt())
-                                spinJenisKelahiran.setSelection(jenisKelahiran.toInt())
-                                spinPenolongKelahiran.setSelection(penolongKelahiran.toInt())
-                            }
-
-                            // DATA PENDIDIKAN dan PEKERJAAN
-                            binding.contentEditData.lyContentPendidikan.apply {
-                                spinPendKK.setSelection(pendidikan.toInt())
-                                spinPendTempuh.setSelection(pendidikanSedang.toInt())
-                                spinPekerjaan.setSelection(pekerjaan.toInt())
-
-                            }
-
-                            // DATA KEWARGANEGARAAN
-                            binding.contentEditData.lyContentKewarganegaraan.apply {
-                                spinSuku.setSelection(suku.toInt())
-
-                                spinStatusWargaNegara.setSelection(wargaNegara.toInt())
-
-                                edtNoPaspor.setText(result.data?.dokumenPasport)
-                                edtNoKitas.setText(result.data?.dokumenKitas)
-                                edtNegaraAsal.setText(result.data?.negaraAsal)
-
-                                expPasporResult.text = result.data?.tanggalAkhirPaspor
-
-                            }
-
-                            // DATA ORTU
-                            binding.contentEditData.lyContentOrtu.apply {
-                                edtNikAyah.setText(result.data?.ayahNik)
-                                edtNamaAyah.setText(result.data?.namaAyah)
-                                edtNikIbu.setText(result.data?.ibuNik)
-                                edtNamaIbu.setText(result.data?.namaIbu)
-                            }
-
-                            // DATA ALAMAT
-                            binding.contentEditData.lyContentAlamat.apply {
-                                edtAlamat.setText(result.data?.alamat)
-                                edtAlamatSblm.setText(result.data?.alamatSebelumnya)
-                                edtNoTelpon.setText(result.data?.telepon)
-                                edtEmail.setText(result.data?.email)
-                                edtTelegram.setText(result.data?.telegram)
-
-                                spinDusun.setSelection(selectedDusunIndex)
-                                spinCaraHubungWarga.setSelection(selectedCaraHubungIndex)
-                            }
-
-                            // DATA KAWIN
-                            binding.contentEditData.lyContentKawin.apply {
-                                spinStatusKawin.setSelection(statusKawin.toInt())
-
-                                edtNoAktaNikah.setText(result.data?.aktaPerkawinan)
-                                edtAktaCerai.setText(result.data?.aktaPerceraian)
-
-                                tanggalKawinResult.text = result.data?.tanggalperkawinan
-                                tglCeraiResult.text = result.data?.tanggalperceraian
-
-                            }
-
-                            // DATA KESEHATAN
-                            binding.contentEditData.lyContentKesehatan.apply {
-                                spinGolDarah.setSelection(golonganDarah.toInt())
-                                spinCacat.setSelection(cacat.toInt())
-                                spinSakitMenahun.setSelection(sakitMenahun.toInt())
-                                spinAkseptorKb.setSelection(caraKB.toInt())
-                                spinAsrKesehatan.setSelection(asuransi.toInt())
-                                spinStatusHamil.setSelection(hamil.toInt())
-
-
-                                edtNoAsuransi.setText(result.data?.noAsuransi)
-                                edtNoBpjs.setText(result.data?.bpjsKetenagakerjaan)
-                            }
-
-                            // DATA LAINNYA
-                            binding.contentEditData.lyContentLainnya.apply {
-                                spinBacaHuruf.setSelection(bahasa.toInt())
-
-                                edtKeterangan.setText(result.data?.ket)
-                            }
-
-                        }
-
-                        is ResultState.Error -> {
-                            binding.apply {
-                                contentProses.contentLayoutProses.visibility = View.GONE
-                                contentEditData.editDataLayout.visibility = View.GONE
-                            }
-
-                            binding.contentErrorMessage.tvErrorMessage.visibility = View.VISIBLE
-                            binding.contentErrorMessage.tvErrorMessage.text = result.error
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private fun setupPostAction() {
+    private fun setupUpdatePenduduk() {
         binding.contentEditData.btnSave.setOnClickListener {
             val nik = binding.contentEditData.lyContentDataDiri.edtNik.text.toString().trim()
             val nama = binding.contentEditData.lyContentDataDiri.edtNama.text.toString()
@@ -445,7 +222,6 @@ class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListe
                         jenisKelamin,
                         agama,
                         statusPenduduk,
-
                         noaktaLahir,
                         tempatLahir,
                         tanggalLahir,
@@ -456,23 +232,19 @@ class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListe
                         penolongKelahiran,
                         beratLahir,
                         panjangLahir,
-
                         pendidikan,
                         pendidikanSedang,
                         pekerjaan,
-
                         suku,
                         statusWargaNegara,
                         noPaspor,
                         tanggalAkhirPaspor,
                         noKitas,
                         negaraAsal,
-
                         nikAyah,
                         namaAyah,
                         nikIbu,
                         namaIbu,
-
                         alamat,
                         dusun,
                         rw,
@@ -482,13 +254,11 @@ class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListe
                         email,
                         telegram,
                         caraHubungWarga,
-
                         statusPerkawinan,
                         noAktaNikah,
                         tanggalNikah,
                         noAktaCerai,
                         tanggalCerai,
-
                         golonganDarah,
                         cacat,
                         sakitMenahun,
@@ -497,8 +267,6 @@ class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListe
                         noAsuransi,
                         noBpjsKetenagakerjaan,
                         statusKehamilan,
-
-
                         bacaHuruf,
                         keterangan
                     )
@@ -506,7 +274,32 @@ class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListe
             }
         }
 
-        updatePendudukResult()
+        viewModel.updatePendudukResut.observe(this) { resultState ->
+            when (resultState) {
+                is ResultState.Loading -> {
+                    binding.contentLoading.contentLayoutProses.visibility = View.VISIBLE
+                }
+
+                is ResultState.Error -> {
+                    binding.contentLoading.contentLayoutProses.visibility = View.GONE
+                    showToast(resultState.error)
+                }
+
+                is ResultState.Success -> {
+                    if (resultState.data.kode == 1) {
+                        binding.contentLoading.contentLayoutProses.visibility = View.GONE
+                        showToast(resultState.data.pesan)
+                        val intent = Intent(this, MainUserActivity::class.java)
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                    } else {
+                        binding.contentLoading.contentLayoutProses.visibility = View.GONE
+                        showToast(getString(R.string.error_update_data))
+                    }
+                }
+            }
+        }
     }
 
     private fun updateDataPenduduk(
@@ -635,42 +428,221 @@ class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListe
 
     }
 
-    private fun updatePendudukResult() {
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.updatePendudukResultState.collectLatest { result ->
-                    when (result) {
-                        is ResultState.Loading -> {
-                            binding.contentProses.contentLayoutProses.visibility = View.VISIBLE
-                        }
+    private fun setupDetailDataPenduduk() {
+        val nik = intent.getStringExtra(EXTRA_RESULT_NIK)
 
-                        is ResultState.Success -> {
-                            if (result.data?.kode == 1) {
-                                binding.contentProses.contentLayoutProses.visibility = View.GONE
-                                showToast(result.data.pesan)
-                                val intent = Intent(this@EditDataActivity, MainUserActivity::class.java)
-                                startActivity(intent)
-                            } else {
-                                binding.contentProses.contentLayoutProses.visibility = View.GONE
-                                showToast(getString(R.string.error_update_data))
-                            }
+        nik?.let {
+            viewModel.getDetailPenduduk(it)
+        }
 
-                        }
-
-                        is ResultState.Error -> {
-                            binding.contentProses.contentLayoutProses.visibility = View.GONE
-                            // showToast(result.pesan.toString())
-
-                        }
+        viewModel.detailPendudukResult.observe(this) { resultState ->
+            when (resultState) {
+                is ResultState.Loading -> {
+                    binding.apply {
+                        contentLoading.contentLayoutProses.visibility = View.VISIBLE
+                        contentEditData.editDataLayout.visibility = View.GONE
                     }
                 }
 
+                is ResultState.Error -> {
+
+                }
+
+                is ResultState.Success -> {
+                    binding.apply {
+                        contentEditData.editDataLayout.visibility = View.VISIBLE
+                        contentLoading.contentLayoutProses.visibility = View.GONE
+                    }
+
+                    val ktpEl = checkIsNull(resultState.data.ktpEl)
+                    val statusRekam = checkIsNull(resultState.data.statusRekam)
+                    val hubunganDalamKeluarga = checkIsNull(resultState.data.kkLevel)
+                    val jenisKelamin = checkIsNull(resultState.data.idSex)
+                    val agama = checkIsNull(resultState.data.agamaId)
+                    val statusPenduduk = checkIsNull(resultState.data.idStatus)
+
+                    val tempatDilahirkan = checkIsNull(resultState.data.tempatDilahirkan)
+                    val jenisKelahiran = checkIsNull(resultState.data.jenisKelahiran)
+                    val penolongKelahiran = checkIsNull(resultState.data.penolongKelahiran)
+
+                    val pendidikan = checkIsNull(resultState.data.pendidikanKkId)
+                    val pendidikanSedang = checkIsNull(resultState.data.pendidikanSedangId)
+                    val pekerjaan = checkIsNull(resultState.data.pekerjaanId)
+
+                    val suku = checkIsNull(resultState.data.suku)
+                    val wargaNegara = checkIsNull(resultState.data.warganegaraId)
+
+                    val dusun = resultState.data.dusun
+                    val dusunArray = resources.getStringArray(R.array.dusun)
+                    val selectedDusunIndex = if (dusun in dusunArray) {
+                        dusunArray.indexOf(dusun)
+                    } else {
+                        0
+                    }
+
+                    val caraHubungWarga = resultState.data.hubungWarga
+                    val caraHubungWargaArray =
+                        resources.getStringArray(R.array.cara_hubung_warga)
+                    val selectedCaraHubungIndex =
+                        if (caraHubungWarga in caraHubungWargaArray) {
+                            caraHubungWargaArray.indexOf(caraHubungWarga)
+                        } else {
+                            0
+                        }
+
+                    val statusKawin = checkIsNull(resultState.data.statusKawin)
+
+                    val golonganDarah = checkIsNull(resultState.data.golonganDarahId)
+                    val cacat = checkIsNull(resultState.data.cacatId)
+                    val sakitMenahun = checkIsNull(resultState.data.sakitMenahunId)
+                    val caraKB = checkIsNull(resultState.data.caraKbId)
+                    val asuransi = checkIsNull(resultState.data.idAsuransi)
+                    val hamil = checkIsNull(resultState.data.hamil)
+
+                    val bahasa = checkIsNull(resultState.data.bahasaId)
+
+                    // DATA DIRI
+                    binding.contentEditData.lyContentDataDiri.apply {
+                        edtNik.setText(nik)
+                        edtNama.setText(resultState.data.nama)
+                        edtTagIdCard.setText(resultState.data.tagIdCard)
+                        edtTmptPenerbitanKtp.setText(resultState.data.tempatCetakKtp)
+                        edtNoKKSblm.setText(resultState.data.noKkSebelumnya)
+
+                        tglPenerbitanKtpResult.text = resultState.data.tanggalCetakKtp
+
+                        spinIdentitasEl.setSelection(ktpEl.toInt())
+                        spinStatusRekam.setSelection(statusRekam.toInt())
+                        spinHubKeluarga.setSelection(hubunganDalamKeluarga.toInt())
+                        spinJenisKelamin.setSelection(jenisKelamin.toInt())
+                        spinAgama.setSelection(agama.toInt())
+                        spinStatusPenduduk.setSelection(statusPenduduk.toInt())
+                    }
+
+                    // DATA KELAHIRAN
+                    binding.contentEditData.lyContentDataLahir.apply {
+                        edtNoAkta.setText(resultState.data.aktaLahir)
+                        edtTempatLahir.setText(resultState.data.tempatlahir)
+                        edtAnakKe.setText(resultState.data.kelahiranAnakKe)
+                        edtBeratLahir.setText(resultState.data.beratLahir)
+                        edtPanjangLahir.setText(resultState.data.panjangLahir)
+
+
+                        tglLahirResult.text = resultState.data.tanggallahir
+                        waktuLahirResult.text = resultState.data.waktuLahir
+
+                        spinTempatDilahirkan.setSelection(tempatDilahirkan.toInt())
+                        spinJenisKelahiran.setSelection(jenisKelahiran.toInt())
+                        spinPenolongKelahiran.setSelection(penolongKelahiran.toInt())
+                    }
+
+                    // DATA PENDIDIKAN dan PEKERJAAN
+                    binding.contentEditData.lyContentPendidikan.apply {
+                        spinPendKK.setSelection(pendidikan.toInt())
+                        spinPendTempuh.setSelection(pendidikanSedang.toInt())
+                        spinPekerjaan.setSelection(pekerjaan.toInt())
+
+                    }
+
+                    // DATA KEWARGANEGARAAN
+                    binding.contentEditData.lyContentKewarganegaraan.apply {
+                        spinSuku.setSelection(suku.toInt())
+
+                        spinStatusWargaNegara.setSelection(wargaNegara.toInt())
+
+                        edtNoPaspor.setText(resultState.data.dokumenPasport)
+                        edtNoKitas.setText(resultState.data.dokumenKitas)
+                        edtNegaraAsal.setText(resultState.data.negaraAsal)
+
+                        expPasporResult.text = resultState.data.tanggalAkhirPaspor
+
+                    }
+
+                    // DATA ORTU
+                    binding.contentEditData.lyContentOrtu.apply {
+                        edtNikAyah.setText(resultState.data.ayahNik)
+                        edtNamaAyah.setText(resultState.data.namaAyah)
+                        edtNikIbu.setText(resultState.data.ibuNik)
+                        edtNamaIbu.setText(resultState.data.namaIbu)
+                    }
+
+                    // DATA ALAMAT
+                    binding.contentEditData.lyContentAlamat.apply {
+                        edtAlamat.setText(resultState.data.alamat)
+                        edtAlamatSblm.setText(resultState.data.alamatSebelumnya)
+                        edtNoTelpon.setText(resultState.data.telepon)
+                        edtEmail.setText(resultState.data.email)
+                        edtTelegram.setText(resultState.data.telegram)
+
+                        spinDusun.setSelection(selectedDusunIndex)
+                        spinCaraHubungWarga.setSelection(selectedCaraHubungIndex)
+                    }
+
+                    // DATA KAWIN
+                    binding.contentEditData.lyContentKawin.apply {
+                        spinStatusKawin.setSelection(statusKawin.toInt())
+
+                        edtNoAktaNikah.setText(resultState.data.aktaPerkawinan)
+                        edtAktaCerai.setText(resultState.data.aktaPerceraian)
+
+                        tanggalKawinResult.text = resultState.data.tanggalperkawinan
+                        tglCeraiResult.text = resultState.data.tanggalperceraian
+
+                    }
+
+                    // DATA KESEHATAN
+                    binding.contentEditData.lyContentKesehatan.apply {
+                        spinGolDarah.setSelection(golonganDarah.toInt())
+                        spinCacat.setSelection(cacat.toInt())
+                        spinSakitMenahun.setSelection(sakitMenahun.toInt())
+                        spinAkseptorKb.setSelection(caraKB.toInt())
+                        spinAsrKesehatan.setSelection(asuransi.toInt())
+                        spinStatusHamil.setSelection(hamil.toInt())
+
+
+                        edtNoAsuransi.setText(resultState.data.noAsuransi)
+                        edtNoBpjs.setText(resultState.data.bpjsKetenagakerjaan)
+                    }
+
+                    // DATA LAINNYA
+                    binding.contentEditData.lyContentLainnya.apply {
+                        spinBacaHuruf.setSelection(bahasa.toInt())
+
+                        edtKeterangan.setText(resultState.data.ket)
+                    }
+                }
             }
         }
     }
 
+    private fun setupAction() {
+        binding.contentEditData.lyContentDataDiri.btnTglPenerbitanKtp.setOnClickListener {
+            showDatePicker(PENERBITAN_KTP_DATE_PICKER)
+        }
 
-    private fun setupSpinnerData() {
+        binding.contentEditData.lyContentDataLahir.btnTglLahir.setOnClickListener {
+            showDatePicker(TANGGAL_LAHIR_DATE_PICKER)
+        }
+
+        binding.contentEditData.lyContentDataLahir.btnWaktuLahir.setOnClickListener {
+            showTimePicker(it)
+        }
+
+        binding.contentEditData.lyContentKewarganegaraan.btnExpPaspor.setOnClickListener {
+            showDatePicker(EXP_PASPOR_DATE_PICKER)
+        }
+
+
+        binding.contentEditData.lyContentKawin.btnTanggalKawin.setOnClickListener {
+            showDatePicker(TANGGAL_KAWIN_DATE_PICKER)
+        }
+
+        binding.contentEditData.lyContentKawin.btnTglCerai.setOnClickListener {
+            showDatePicker(TANGGAL_CERAI_DATE_PICKER)
+        }
+    }
+
+    private fun setupViewSpinner() {
         setupSpinner(
             binding.contentEditData.lyContentDataDiri.spinIdentitasEl,
             R.array.identitas_el
@@ -909,10 +881,17 @@ class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListe
         dialogFragment.show(supportFragmentManager, tag)
     }
 
+    private fun checkIsNull(value: String?) =
+        if (value.isNullOrEmpty() || value == "null") "0" else value
+
 
     private fun showTimePicker(view: View) {
         val dialogFragment = TimePickerFragment()
         dialogFragment.show(supportFragmentManager, "timePicker")
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onDialogDateSet(tag: String?, year: Int, month: Int, dayOfMonth: Int) {
@@ -955,17 +934,5 @@ class EditDataActivity : AppCompatActivity(), DatePickerFragment.DialogDateListe
         val dateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
         binding.contentEditData.lyContentDataLahir.waktuLahirResult.text =
             dateFormat.format(calendar.time)
-    }
-
-    private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun checkIsNull(value: String?) =
-        if (value.isNullOrEmpty() || value == "null") "0" else value
-
-
-    companion object {
-        const val EXTRA_NIK_RESULT = "extra_nik_result"
     }
 }

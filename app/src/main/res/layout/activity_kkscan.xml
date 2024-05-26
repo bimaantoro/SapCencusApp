@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/headerTv" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/previewIv"
+        android:id="@+id/ivPreviewKtp"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
@@ -46,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descTv"
-        app:shapeAppearanceOverlay="@style/rounded8"
+        app:shapeAppearanceOverlay="@style/RoundShapeImage"
         app:srcCompat="@drawable/ic_placeholder" />
 
     <Button
@@ -59,8 +59,8 @@
         android:text="@string/open_camera"
         app:layout_constraintEnd_toStartOf="@+id/gVertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/previewIv"
-        app:shapeAppearance="@style/roundCorner" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPreviewKtp"
+        app:shapeAppearance="@style/RoundShapeButton" />
 
     <Button
         android:id="@+id/btnOpenGallery"
@@ -72,8 +72,8 @@
         android:text="@string/open_gallery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/gVertical"
-        app:layout_constraintTop_toBottomOf="@+id/previewIv"
-        app:shapeAppearance="@style/roundCorner" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPreviewKtp"
+        app:shapeAppearance="@style/RoundShapeButton" />
 
     <Button
         android:id="@+id/btnUploadKK"
@@ -86,7 +86,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:shapeAppearance="@style/roundCorner" />
+        app:shapeAppearance="@style/RoundShapeButton" />
 
 
     <androidx.constraintlayout.widget.Guideline

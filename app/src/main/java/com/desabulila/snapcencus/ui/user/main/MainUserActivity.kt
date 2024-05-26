@@ -9,8 +9,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.desabulila.snapcencus.R
 import com.desabulila.snapcencus.databinding.ActivityMainUserBinding
 import com.desabulila.snapcencus.ui.user.ktp.result.KtpResultActivity
-import com.desabulila.snapcencus.ui.user.ktp.scan.ScanKtpActivity
 import com.desabulila.snapcencus.ui.user.list.PendudukListActivity
+import com.desabulila.snapcencus.ui.user.ocr.ktp.KtpOcrActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainUserActivity : AppCompatActivity() {
@@ -34,23 +34,7 @@ class MainUserActivity : AppCompatActivity() {
 
     private fun setupAction() {
         binding.btnScanDocument.setOnClickListener {
-            MaterialAlertDialogBuilder(this).apply {
-                setTitle(R.string.title_ocr)
-                setMessage(R.string.message_ocr)
-                setPositiveButton(R.string.ya) { _, _ ->
-                    val intent = Intent(this@MainUserActivity, ScanKtpActivity::class.java)
-                    startActivity(intent)
-                }
-                setNeutralButton(R.string.input_manual) { _, _ ->
-                    val intent = Intent(this@MainUserActivity, KtpResultActivity::class.java)
-                    startActivity(intent)
-                }
-                    .setNegativeButton(R.string.cancel) { dialog, _ ->
-                        dialog.dismiss()
-                    }
-                    .create()
-                    .show()
-            }
+            showDialog()
         }
 
         binding.btnShowData.setOnClickListener {
@@ -60,6 +44,24 @@ class MainUserActivity : AppCompatActivity() {
 
         binding.btnLogout.setOnClickListener {
 
+        }
+    }
+
+    private fun showDialog() {
+        MaterialAlertDialogBuilder(this).apply {
+            setTitle(R.string.title_ocr)
+            setMessage(R.string.message_ocr)
+            setPositiveButton(R.string.positive_button_ocr) { _, _ ->
+                val intent = Intent(this@MainUserActivity, KtpOcrActivity::class.java)
+                startActivity(intent)
+            }
+
+            setNeutralButton(R.string.neutral_button_ocr) { _, _ ->
+                val intent = Intent(this@MainUserActivity, KtpResultActivity::class.java)
+                startActivity(intent)
+            }
+                .create()
+                .show()
         }
     }
 }

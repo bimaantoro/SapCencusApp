@@ -9,10 +9,9 @@
     <string name="logout">Logout</string>
 
     <string name="title_ocr">Gunakan OCR</string>
-    <string name="message_ocr">Apakah Anda ingin menggunakan OCR?</string>
-    <string name="ya">Ya</string>
-    <string name="input_manual">Tidak, Input Manual</string>
-    <string name="cancel">Batal</string>
+    <string name="message_ocr">Apakah Anda ingin menggunakan OCR untuk memindai KTP?</string>
+    <string name="positive_button_ocr">Ya</string>
+    <string name="neutral_button_ocr">Input Manual</string>
 
 
     <string name="description_scan">Silahkan lakukan pemindaian dokumen berupa Kartu Tanda Penduduk (KTP).</string>
@@ -48,8 +47,10 @@
     <string name="hubungan_keluarga">Hubungan dalam Keluarga</string>
     <string name="pendidikan_terakhir">Pendidikan Terakhir</string>
     <string name="narahubung_warga">Cara hubung Warga</string>
-    <string name="permission_granted">Permission granted</string>
-    <string name="permission_denied">Permission denied</string>
+
+    <string name="permission_granted">Izin diberikan</string>
+    <string name="permission_denied_message">Izin akses kamera tidak diberikan</string>
+
     <string name="capture_gambar">Capture gambar</string>
     <string name="empty_image_warning">Silahkan mmasukkan gambar KTP terlebih dahulu.</string>
     <string name="data_alamat">ALAMAT</string>
@@ -115,7 +116,7 @@
     <string name="data_lainnya">LAINNYA</string>
     <string name="dapat_membaca_huruf">Dapat Membaca Huruf</string>
     <string name="keterangan">Keterangan</string>
-    <string name="edit_data_user">Edit Data User</string>
+
     <string name="desa_bulila">Desa Bulila</string>
 
     <string name="anda_masuk_sebagai">Anda Masuk Sebagai</string>
@@ -610,6 +611,17 @@
 
 
     <string name="penduduk_list_title">Data Penduduk</string>
+    <string name="edit_penduduk_title">Edit Data Penduduk</string>
+    <string name="ktp_ocr_screen">Scan KTP</string>
+    <string name="preview_ktp_label">Unggah Gambar KTP</string>
+    <string name="back">Kembali</string>
+    <string name="flash_camera_content_desc">Flash kamera</string>
+
+    <string name="camera_error_message">Maaf, telah terjadi kesalahan</string>
+    <string name="picker_error_message">Tidak ada media yang dipilih</string>
+    <string name="photo_picker_error_message">Photo Picker tidak didukung pada perangkat Anda</string>
+
+    <string name="capture_photo">Mohon tunggu</string>
 
 
 </resources>

@@ -21,7 +21,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@color/primary" />
+            app:srcCompat="@color/green" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
                 android:importantForAccessibility="no"
                 android:padding="10dp"
                 app:srcCompat="@drawable/ic_attach_file"
-                app:tint="@color/primary" />
+                app:tint="@color/green" />
 
         </androidx.cardview.widget.CardView>
 

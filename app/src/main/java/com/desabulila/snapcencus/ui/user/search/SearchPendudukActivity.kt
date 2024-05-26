@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.desabulila.snapcencus.R
 import com.desabulila.snapcencus.databinding.ActivitySearchPendudukBinding
-import com.desabulila.snapcencus.ui.user.edit.EditDataActivity
+import com.desabulila.snapcencus.ui.user.detail.DetailPendudukActivity
 
 class SearchPendudukActivity : AppCompatActivity() {
 
@@ -36,8 +36,8 @@ class SearchPendudukActivity : AppCompatActivity() {
 
 
         binding.btnSearch.setOnClickListener {
-            val intent = Intent(this, EditDataActivity::class.java).apply {
-                putExtra(EditDataActivity.EXTRA_NIK_RESULT, nik)
+            val intent = Intent(this, DetailPendudukActivity::class.java).apply {
+                putExtra(EXTRA_NIK_RESULT, nik)
             }
 
             startActivity(intent)

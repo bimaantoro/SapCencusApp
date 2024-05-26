@@ -16,7 +16,7 @@
         android:text="@string/welcome"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
-        android:textColor="@color/primary"
+        android:textColor="@color/green"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,14 +40,14 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/primary"
+        android:backgroundTint="@color/green"
         android:padding="16dp"
         android:text="@string/scan_dokumen"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivLogo"
-        app:shapeAppearance="@style/roundCorner" />
+        app:shapeAppearance="@style/RoundShapeButton" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnShowData"
@@ -63,7 +63,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnScanDocument"
-        app:shapeAppearance="@style/roundCorner" />
+        app:shapeAppearance="@style/RoundShapeButton" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogout"
@@ -79,20 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnShowData"
-        app:shapeAppearance="@style/roundCorner" />
-
-    <include
-        android:id="@+id/lyContentConfirm"
-        layout="@layout/content_confirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        app:shapeAppearance="@style/RoundShapeButton" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gHorizontal1"

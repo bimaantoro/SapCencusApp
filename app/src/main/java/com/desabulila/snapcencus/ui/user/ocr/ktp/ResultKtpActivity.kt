@@ -1,16 +1,17 @@
-package com.desabulila.snapcencus.ui.user.ktp.result
+package com.desabulila.snapcencus.ui.user.ocr.ktp
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.desabulila.snapcencus.R
 import com.desabulila.snapcencus.data.ResultState
-import com.desabulila.snapcencus.databinding.ActivityResultScanKtpBinding
+import com.desabulila.snapcencus.databinding.ActivityResultKtpBinding
 import com.desabulila.snapcencus.helper.getKTP
 import com.desabulila.snapcencus.ui.ViewModelFactory
+import com.desabulila.snapcencus.ui.user.ocr.ktp.viewmodel.ResultKtpViewModel
 import com.desabulila.snapcencus.utils.DatePickerFragment
 import com.desabulila.snapcencus.utils.EXTRA_AGAMA
 import com.desabulila.snapcencus.utils.EXTRA_ALAMAT
@@ -24,19 +25,11 @@ import com.desabulila.snapcencus.utils.EXTRA_STATUS_PERKAWINAN
 import com.desabulila.snapcencus.utils.EXTRA_TANGGAL_LAHIR
 import com.desabulila.snapcencus.utils.EXTRA_TEMPAT_LAHIR
 import com.desabulila.snapcencus.utils.TANGGAL_LAHIR_DATE_PICKER
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class ResultScanKtpActivity : AppCompatActivity(), DatePickerFragment.DialogDateListener {
-
-    private lateinit var binding: ActivityResultScanKtpBinding
-
-    private val viewModel by viewModels<ResultKtpViewModel> {
-        ViewModelFactory.getInstance(this)
-    }
+class ResultKtpActivity : AppCompatActivity(), DatePickerFragment.DialogDateListener {
 
     private var nik = ""
     private var nama = ""
@@ -54,12 +47,24 @@ class ResultScanKtpActivity : AppCompatActivity(), DatePickerFragment.DialogDate
     private var golonganDarah = ""
 
 
+    private val binding: ActivityResultKtpBinding by lazy {
+        ActivityResultKtpBinding.inflate(layoutInflater)
+    }
+
+
+    private val viewModel by viewModels<ResultKtpViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityResultScanKtpBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         setupData()
         setupAction()
@@ -67,41 +72,37 @@ class ResultScanKtpActivity : AppCompatActivity(), DatePickerFragment.DialogDate
     }
 
     private fun fetchDataPenduduk() {
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.resultState.collectLatest { result ->
-                    when (result) {
-                        is ResultState.Success -> {
-                            val jenisKelaminList = result.data?.jenisKelamin
-                            val namaJenisKelaminList = jenisKelaminList?.map { it.nama } ?: listOf()
-                            val idJenisKelaminList = jenisKelaminList?.map { it.id } ?: listOf()
+        viewModel.listResult.observe(this) { resultState ->
+            when (resultState) {
+                is ResultState.Success -> {
+                    val jenisKelaminList = resultState.data.jenisKelamin
+                    val namaJenisKelaminList = jenisKelaminList.map { it.nama }
+                    val idJenisKelaminList = jenisKelaminList.map { it.id }
 
-                            val agamaList = result.data?.agama
-                            val namaAgamaList = agamaList?.map { it.nama } ?: listOf()
-                            val idAgamaList = agamaList?.map { it.id } ?: listOf()
+                    val agamaList = resultState.data.agama
+                    val namaAgamaList = agamaList.map { it.nama }
+                    val idAgamaList = agamaList.map { it.id }
 
-                            val statusKawinList = result.data?.statusKawin
-                            val namaStatusKawinList = statusKawinList?.map { it.nama } ?: listOf()
-                            val idStatusKawinList = statusKawinList?.map { it.id } ?: listOf()
+                    val statusKawinList = resultState.data.statusKawin
+                    val namaStatusKawinList = statusKawinList.map { it.nama }
+                    val idStatusKawinList = statusKawinList.map { it.id }
 
-                            val pekerjaanList = result.data?.pekerjaan
-                            val namaPekerjaanList = pekerjaanList?.map { it.nama } ?: listOf()
-                            val idPekerjaanList = pekerjaanList?.map { it.id } ?: listOf()
+                    val pekerjaanList = resultState.data.pekerjaan
+                    val namaPekerjaanList = pekerjaanList.map { it.nama }
+                    val idPekerjaanList = pekerjaanList.map { it.id }
 
-                            val dusunList = result.data?.dusun
-                            val namaDusunList =
-                                dusunList?.map { it.rt + " " + it.rw + " " + it.dusun } ?: listOf()
-                            val idDusunList = dusunList?.map { it.id } ?: listOf(   )
+                    val dusunList = resultState.data.dusun
+                    val namaDusunList =
+                        dusunList.map { it.rt + " " + it.rw + " " + it.dusun }
+                    val idDusunList = dusunList.map { it.id }
 
-
-                        }
-
-                        is ResultState.Error -> {}
-                        is ResultState.Loading -> {}
-                    }
 
                 }
+
+                is ResultState.Error -> {}
+                is ResultState.Loading -> {}
             }
+
         }
     }
 

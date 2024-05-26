@@ -14,7 +14,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:text="@string/nik_search"
-        android:textColor="@color/primary"
+        android:textColor="@color/green"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,14 +54,14 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/primary"
+        android:backgroundTint="@color/green"
         android:padding="16dp"
         android:text="@string/cari"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtLNikQuery"
-        app:shapeAppearance="@style/roundCorner" />
+        app:shapeAppearance="@style/RoundShapeButton" />
 
     <include
         android:id="@+id/ly_data_search"

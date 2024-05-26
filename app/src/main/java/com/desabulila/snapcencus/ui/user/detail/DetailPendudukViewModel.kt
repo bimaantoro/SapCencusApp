@@ -1,34 +1,30 @@
-package com.desabulila.snapcencus.ui.user.edit
+package com.desabulila.snapcencus.ui.user.detail
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.desabulila.snapcencus.data.ResultState
 import com.desabulila.snapcencus.data.SnapCencusRepository
 import com.desabulila.snapcencus.data.network.response.CommonResponse
 import com.desabulila.snapcencus.data.network.response.DetailPendudukResponse
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class EditDataViewModel(private val snapCencusRepository: SnapCencusRepository) : ViewModel() {
+class DetailPendudukViewModel(private val snapCencusRepository: SnapCencusRepository) : ViewModel() {
 
-    private val _resultState: MutableStateFlow<ResultState<DetailPendudukResponse?>> =
-        MutableStateFlow(ResultState.Loading())
-    val resultState: StateFlow<ResultState<DetailPendudukResponse?>> = _resultState
+    private val _detailPendudukResult = MutableLiveData<ResultState<DetailPendudukResponse>>()
+    val detailPendudukResult: LiveData<ResultState<DetailPendudukResponse>> = _detailPendudukResult
 
-    private val _updatePendudukResultState: MutableStateFlow<ResultState<CommonResponse?>> =
-        MutableStateFlow(ResultState.Loading())
-    val updatePendudukResultState: StateFlow<ResultState<CommonResponse?>> = _updatePendudukResultState
+    private val _updatePendudukResult = MutableLiveData<ResultState<CommonResponse>>()
+    val updatePendudukResut: LiveData<ResultState<CommonResponse>> = _updatePendudukResult
 
     fun getDetailPenduduk(nik: String) {
         viewModelScope.launch {
-            snapCencusRepository.getDetailPenduduk(nik).collectLatest {
-                _resultState.value = it
+            snapCencusRepository.getDetailPenduduk(nik).collect {
+                _detailPendudukResult.value = it
             }
         }
     }
-
 
     fun updatePenduduk(
         nik: String,
@@ -92,7 +88,7 @@ class EditDataViewModel(private val snapCencusRepository: SnapCencusRepository) 
         keterangan: String
     ) {
         viewModelScope.launch {
-            snapCencusRepository.updateDataPenduduk(
+            snapCencusRepository.updatePenduduk(
                 nik,
                 nama,
                 statusKtp,
@@ -152,8 +148,8 @@ class EditDataViewModel(private val snapCencusRepository: SnapCencusRepository) 
                 statusHamil,
                 bacaHuruf,
                 keterangan
-            ).collectLatest {
-                _updatePendudukResultState.value = it
+            ).collect {
+                _updatePendudukResult.value = it
             }
         }
     }

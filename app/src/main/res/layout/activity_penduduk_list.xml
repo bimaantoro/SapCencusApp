@@ -49,6 +49,6 @@
         app:icon="@drawable/ic_search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:shapeAppearance="@style/roundCorner" />
+        app:shapeAppearance="@style/RoundShapeButton" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

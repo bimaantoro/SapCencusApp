@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.desabulila.snapcencus.data.model.PendudukModel
 import com.desabulila.snapcencus.databinding.ItemDataBinding
-import com.desabulila.snapcencus.ui.user.edit.EditDataActivity
+import com.desabulila.snapcencus.ui.user.detail.DetailPendudukActivity
 import com.desabulila.snapcencus.utils.EXTRA_RESULT_NIK
 
 class PendudukListAdapter :
@@ -37,7 +37,7 @@ class PendudukListAdapter :
             binding.tvNik.text = data.nik
 
             binding.btnEdit.setOnClickListener {
-                val intent = Intent(itemView.context, EditDataActivity::class.java)
+                val intent = Intent(itemView.context, DetailPendudukActivity::class.java)
                 intent.putExtra(EXTRA_RESULT_NIK, data.nik)
                 itemView.context.startActivity(intent)
             }

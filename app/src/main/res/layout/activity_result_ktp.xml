@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.user.ktp.result.ResultScanKtpActivity">
+    tools:context=".ui.user.ocr.ktp.ResultKtpActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -17,13 +17,13 @@
             style="?attr/collapsingToolbarLayoutMediumStyle"
             android:layout_width="match_parent"
             android:layout_height="?attr/collapsingToolbarLayoutMediumSize"
-            app:contentScrim="@color/primary"
+            app:contentScrim="@color/green"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/primary"
+                android:background="@color/green"
                 android:fitsSystemWindows="true" />
 
             <com.google.android.material.appbar.MaterialToolbar

@@ -102,7 +102,7 @@
             android:layout_marginTop="48dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
-            android:backgroundTint="@color/primary"
+            android:backgroundTint="@color/green"
             android:padding="16dp"
             android:text="@string/save"
             android:textSize="14sp"
@@ -110,7 +110,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lyContentLainnya"
-            app:shapeAppearance="@style/roundCorner" />
+            app:shapeAppearance="@style/RoundShapeButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

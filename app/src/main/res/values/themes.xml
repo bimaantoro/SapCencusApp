@@ -2,21 +2,36 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.SnapCencus" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/green</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
     </style>
 
     <style name="Theme.SnapCencus" parent="Base.Theme.SnapCencus" />
 
-    <style name="roundCorner" parent="">
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Positive.Button</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.App.Neutral.Button</item>
+    </style>
+
+    <style name="Widget.App.Positive.Button" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="backgroundTint">@color/green</item>
+        <item name="shapeAppearance">@style/RoundShapeButton</item>
+    </style>
+
+
+    <style name="Widget.App.Neutral.Button" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/red</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+    </style>
+
+
+    <style name="RoundShapeButton">
         <item name="cornerSize">20%</item>
     </style>
 
-    <style name="Theme.SnapCencus.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.SnapCencus.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-
-    <style name="rounded8">
+    <style name="RoundShapeImage">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8%</item>
     </style>

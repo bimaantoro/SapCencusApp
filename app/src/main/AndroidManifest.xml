@@ -2,11 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-feature android:name="android.hardware.camera" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
 
     <application
         android:allowBackup="true"
@@ -19,39 +21,37 @@
         android:theme="@style/Theme.SnapCencus"
         tools:targetApi="31">
         <activity
+            android:name=".ui.user.ocr.camera.CameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.ocr.ktp.ResultKtpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.ocr.ktp.KtpOcrActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.admin.main.MainAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.detail.DetailPendudukActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.user.main.MainUserActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".ui.user.list.PendudukListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.user.ktp.result.ResultScanKtpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.user.ktp.scan.ScanKtpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.user.logout.LogoutUserActivity"
             android:exported="false" />
         <activity
             android:name=".ui.user.search.SearchPendudukActivity"
             android:exported="false" />
         <activity
             android:name=".ui.pin.PinActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.admin.AdminActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.user.edit.EditDataActivity"
             android:exported="false" />
         <activity
             android:name=".ui.user.ktp.camera.KtpCameraActivity"
@@ -63,17 +63,10 @@
             android:name=".ui.user.kk.KKScanActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.user.ktp.KtpScanActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.user.ktp.result.KtpResultActivity"
             android:exported="true" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" /> <!-- Trigger Google Play services to install the backported photo picker module. -->
+
+        <!-- Trigger Google Play services to install the backported photo picker module. -->
         <!-- suppress AndroidDomInspection -->
         <service
             android:name="com.google.android.gms.metadata.ModuleDependencies"
