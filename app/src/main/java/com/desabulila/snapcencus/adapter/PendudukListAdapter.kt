@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.desabulila.snapcencus.data.model.PendudukModel
-import com.desabulila.snapcencus.databinding.ItemDataBinding
+import com.desabulila.snapcencus.databinding.ItemPendudukBinding
 import com.desabulila.snapcencus.ui.user.detail.DetailPendudukActivity
 import com.desabulila.snapcencus.utils.EXTRA_RESULT_NIK
 
@@ -19,7 +19,8 @@ class PendudukListAdapter :
         parent: ViewGroup,
         viewType: Int
     ): MyViewHolder {
-        val binding = ItemDataBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemPendudukBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 
@@ -30,13 +31,13 @@ class PendudukListAdapter :
         }
     }
 
-    class MyViewHolder(private val binding: ItemDataBinding) :
+    class MyViewHolder(private val binding: ItemPendudukBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: PendudukModel) {
             binding.tvNama.text = data.nama
             binding.tvNik.text = data.nik
 
-            binding.btnEdit.setOnClickListener {
+            binding.btnEditPenduduk.setOnClickListener {
                 val intent = Intent(itemView.context, DetailPendudukActivity::class.java)
                 intent.putExtra(EXTRA_RESULT_NIK, data.nik)
                 itemView.context.startActivity(intent)

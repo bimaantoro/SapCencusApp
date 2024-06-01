@@ -15,7 +15,7 @@
 
         <include
             android:id="@+id/lyContentDataDiri"
-            layout="@layout/ly_content_data_diri"
+            layout="@layout/content_data_diri"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
 
         <include
             android:id="@+id/lyContentDataLahir"
-            layout="@layout/ly_content_data_kelahiran"
+            layout="@layout/content_data_kelahiran"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
 
         <include
             android:id="@+id/lyContentPendidikan"
-            layout="@layout/ly_content_pendidikan"
+            layout="@layout/content_data_pendidikan_pekerjaan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
 
         <include
             android:id="@+id/lyContentKewarganegaraan"
-            layout="@layout/ly_content_kewarganegaraan"
+            layout="@layout/content_data_kewarganegaraan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +51,7 @@
 
         <include
             android:id="@+id/lyContentOrtu"
-            layout="@layout/ly_content_ortu"
+            layout="@layout/content_data_ortu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +60,7 @@
 
         <include
             android:id="@+id/lyContentAlamat"
-            layout="@layout/ly_content_alamat"
+            layout="@layout/content_alamat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +69,7 @@
 
         <include
             android:id="@+id/lyContentKawin"
-            layout="@layout/ly_content_perkawinan"
+            layout="@layout/content_data_perkawinan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +78,7 @@
 
         <include
             android:id="@+id/lyContentKesehatan"
-            layout="@layout/ly_content_kesehatan"
+            layout="@layout/content_data_kesehatan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +87,7 @@
 
         <include
             android:id="@+id/lyContentLainnya"
-            layout="@layout/ly_content_lainnya"
+            layout="@layout/content_data_lainnya"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"

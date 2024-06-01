@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.pin.PinActivity">
+    tools:context=".ui.auth.PinAuthActivity">
 
     <TextView
         android:id="@+id/tvHeadline"
@@ -21,8 +21,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/gHorizontal1"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintTop_toTopOf="@+id/gHorizontal"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tvSubHeadline"
@@ -40,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvHeadline" />
 
     <include
-        android:id="@+id/lyPin"
+        android:id="@+id/content_pin_auth"
         layout="@layout/content_pin_auth"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
 
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gHorizontal1"
+        android:id="@+id/gHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -66,6 +66,5 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

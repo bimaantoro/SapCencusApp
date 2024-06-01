@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.OrientationEventListener
 import android.view.Surface
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
@@ -49,12 +50,18 @@ class CameraActivity : AppCompatActivity() {
 
         setupAction()
     }
+    override fun onResume() {
+        super.onResume()
+        hideSystemUI()
+        startCamera()
+    }
 
     private fun setupAction() {
 
         startCamera()
 
         binding.btnCapture.setOnClickListener {
+            binding.progressBar.visibility = View.VISIBLE
             takePhoto()
         }
 
@@ -157,11 +164,6 @@ class CameraActivity : AppCompatActivity() {
         orientationEventListener.enable()
     }
 
-    override fun onResume() {
-        super.onResume()
-        hideSystemUI()
-        startCamera()
-    }
 
     override fun onStop() {
         super.onStop()

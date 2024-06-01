@@ -1,7 +1,7 @@
 package com.desabulila.snapcencus.data
 
-sealed class ResultState<out R> private constructor() {
-    data class Success<out T>(val data: T) : ResultState<T>()
-    data class Error(val error: String) : ResultState<Nothing>()
-    data object Loading : ResultState<Nothing>()
+sealed class ResultState<T>(val data: T? = null, val message: String? = null) {
+    class Success<T>(data: T) : ResultState<T>(data)
+    class Error<T>(message: String, data: T? = null) : ResultState<T>(data, message)
+    class Loading<T>(data: T? = null) : ResultState<T>(data)
 }

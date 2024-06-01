@@ -16,7 +16,7 @@ class SnapCencusRepository(
 ) {
 
     suspend fun getListData(): Flow<ResultState<ListDataModel>> = flow {
-        emit(ResultState.Loading)
+        emit(ResultState.Loading())
         try {
             val response = apiService.getBaseData()
             emit(ResultState.Success(response))
@@ -27,22 +27,26 @@ class SnapCencusRepository(
 
 
     suspend fun getPenduduk(): Flow<ResultState<ListDataModel>> = flow {
-        emit(ResultState.Loading)
+        emit(ResultState.Loading())
         try {
             val response = apiService.getPenduduk()
             emit(ResultState.Success(response))
         } catch (exc: HttpException) {
+            emit(ResultState.Error(exc.message.toString()))
+        } catch (exc: Exception) {
             emit(ResultState.Error(exc.message.toString()))
         }
     }.flowOn(Dispatchers.IO)
 
 
     suspend fun getDetailPenduduk(nik: String): Flow<ResultState<DetailPendudukResponse>> = flow {
-        emit(ResultState.Loading)
+        emit(ResultState.Loading())
         try {
             val response = apiService.getDetailPenduduk(nik)
             emit(ResultState.Success(response))
         } catch (exc: HttpException) {
+            emit(ResultState.Error(exc.message.toString()))
+        } catch (exc: Exception) {
             emit(ResultState.Error(exc.message.toString()))
         }
     }.flowOn(Dispatchers.IO)
@@ -70,7 +74,7 @@ class SnapCencusRepository(
         namaIbu: String,
         hubungWarga: String
     ): Flow<ResultState<CommonResponse>> = flow {
-        emit(ResultState.Loading)
+        emit(ResultState.Loading())
         try {
             val response = apiService.postPenduduk(
                 nik,
@@ -100,6 +104,8 @@ class SnapCencusRepository(
             val errorBody = exc.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(errorBody, CommonResponse::class.java)
             emit(ResultState.Error(errorResponse.pesan))
+        } catch (exc: Exception) {
+            emit(ResultState.Error(exc.message.toString()))
         }
 
     }.flowOn(Dispatchers.IO)
@@ -165,7 +171,7 @@ class SnapCencusRepository(
         bacaHuruf: String,
         keterangan: String,
     ): Flow<ResultState<CommonResponse>> = flow {
-        emit(ResultState.Loading)
+        emit(ResultState.Loading())
         try {
             val response = apiService.updatePenduduk(
                 nik,
@@ -233,6 +239,8 @@ class SnapCencusRepository(
             val errorBody = exc.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(errorBody, CommonResponse::class.java)
             emit(ResultState.Error(errorResponse.pesan))
+        } catch (exc: Exception) {
+            emit(ResultState.Error(exc.message.toString()))
         }
     }.flowOn(Dispatchers.IO)
 

@@ -22,7 +22,8 @@
 
     <style name="Widget.App.Neutral.Button" parent="Widget.Material3.Button.TextButton.Dialog">
         <item name="android:textColor">@color/red</item>
-        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="shapeAppearance">@style/RoundShapeButton</item>
+        <item name="buttonBarNeutralButtonStyle">?attr/materialIconButtonOutlinedStyle</item>
     </style>
 
 

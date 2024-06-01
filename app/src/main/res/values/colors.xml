@@ -6,5 +6,9 @@
     <color name="green">#1A5D1A</color>
     <color name="gray">#7D7C7C</color>
     <color name="yellow">#FFC94A</color>
+
+    <color name="pastel_green">#84C67A</color>
+    <color name="pastel_yellow">#FFE783</color>
+
     <color name="placeholder_gray">#EEEDEB</color>
 </resources>

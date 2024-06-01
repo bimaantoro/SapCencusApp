@@ -8,6 +8,7 @@
     tools:context=".ui.user.list.PendudukListActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -15,7 +16,8 @@
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/penduduk_list_title" />
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/penduduk_list_screen" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -25,15 +27,13 @@
 
     <include
         android:id="@+id/content_loading"
-        layout="@layout/content_loading"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        layout="@layout/item_loading"
+        android:visibility="gone" />
 
     <include
         android:id="@+id/content_error_message"
         layout="@layout/content_error_message"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:visibility="gone" />
 
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -44,9 +44,12 @@
         android:layout_margin="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
-        android:contentDescription="@string/search_nik"
-        android:text="@string/search_nik"
+        android:contentDescription="@string/search_nik_penduduk"
+        android:text="@string/search_nik_penduduk"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/green"
         app:icon="@drawable/ic_search"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:shapeAppearance="@style/RoundShapeButton" />

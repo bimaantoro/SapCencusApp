@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.admin.main.MainActivity">
+    tools:context=".ui.admin.main.MainAdminActivity">
 
     <TextView
         android:id="@+id/tvHeadline"
@@ -41,7 +41,7 @@
         android:layout_marginEnd="32dp"
         android:backgroundTint="@color/green"
         android:padding="16dp"
-        android:text="@string/edit_penduduk_title"
+        android:text="@string/edit_user"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,14 +51,15 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogout"
+        style="?attr/materialButtonOutlinedStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/red"
         android:padding="16dp"
         android:text="@string/logout"
+        android:textColor="@color/red"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

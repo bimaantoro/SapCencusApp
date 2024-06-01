@@ -64,7 +64,7 @@ class PendudukListActivity : AppCompatActivity() {
                 }
 
                 is ResultState.Error -> {
-                    val error = resultState.error
+                    val error = resultState.message
 
                     binding.apply {
                         contentLoading.progressBarLayout.visibility = View.GONE
@@ -87,7 +87,7 @@ class PendudukListActivity : AppCompatActivity() {
                         contentPendudukList.contentPendudukList.visibility = View.VISIBLE
                         contentErrorMessage.tvErrorMessage.visibility = View.GONE
                     }
-                    val pendudukData = resultState.data.dataPenduduk
+                    val pendudukData = resultState.data?.dataPenduduk
                     pendudukListAdapter.submitList(pendudukData)
                 }
             }

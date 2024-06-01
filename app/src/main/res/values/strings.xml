@@ -4,22 +4,20 @@
 
     <string name="logo_bulila">Logo Desa Bulila</string>
 
-    <string name="lihat_data">Lihat Data</string>
+    <string name="show_data_penduduk">Lihat Data Penduduk</string>
     <string name="scan_dokumen">Scan Dokumen</string>
     <string name="logout">Logout</string>
 
     <string name="title_ocr">Gunakan OCR</string>
-    <string name="message_ocr">Apakah Anda ingin menggunakan OCR untuk memindai KTP?</string>
+    <string name="message_ocr">Apakah Anda ingin menggunakan OCR untuk memindai data KTP?</string>
     <string name="positive_button_ocr">Ya</string>
     <string name="neutral_button_ocr">Input Manual</string>
 
 
-    <string name="description_scan">Silahkan lakukan pemindaian dokumen berupa Kartu Tanda Penduduk (KTP).</string>
     <string name="ktp">Kartu Tanda Penduduk!</string>
-    <string name="preview_gambar_ktp">Preview gambar KTP</string>
     <string name="open_camera">Buka Camera</string>
     <string name="open_gallery">Buka Galeri</string>
-    <string name="scan_ktp">Scan KTP</string>
+
     <string name="hasil_scan_ktp">Hasil Scan KTP</string>
     <string name="nik">NIK</string>
     <string name="nama">Nama</string>
@@ -38,9 +36,7 @@
     <string name="gol_darah">Golongan Darah</string>
     <string name="save">Simpan</string>
     <string name="kartu_keluarga">Kartu Keluarga!</string>
-    <string name="preview_gambar_kk">Preview gambar KK</string>
-    <string name="desc_kk">Silahkan lakukan pemindaian dokumen berupa Kartu Keluarga (KK).</string>
-    <string name="scan_kk">Scan Kartu Keluarga\n</string>
+
     <string name="hasil_scan_kk">Hasil Scan Kartu Keluarga</string>
     <string name="nama_ayah">Nama Ayah</string>
     <string name="nama_ibu">Nama Ibu</string>
@@ -48,22 +44,26 @@
     <string name="pendidikan_terakhir">Pendidikan Terakhir</string>
     <string name="narahubung_warga">Cara hubung Warga</string>
 
-    <string name="permission_granted">Izin diberikan</string>
     <string name="permission_denied_message">Izin akses kamera tidak diberikan</string>
+    <string name="empty_image_warning_message">Silahkan mmasukkan gambar KTP terlebih dahulu</string>
+    <string name="camera_error_message">Maaf, telah terjadi kesalahan</string>
+    <string name="picker_error_message">Tidak ada media yang dipilih</string>
+    <string name="photo_picker_error_message">Photo Picker tidak didukung pada perangkat ini</string>
+    <string name="text_recognized_error_message">Teks tidak dikenali</string>
 
     <string name="capture_gambar">Capture gambar</string>
-    <string name="empty_image_warning">Silahkan mmasukkan gambar KTP terlebih dahulu.</string>
+
     <string name="data_alamat">ALAMAT</string>
-    <string name="alamat_kk">Alamat KK</string>
+    <string name="alamat_kk">Alamat</string>
     <string name="desa_kelurahan_kk">Desa/Kelurahan KK</string>
-    <string name="rt_kk">RT KK</string>
+    <string name="rt_kk">RT</string>
     <string name="alamat_sebelumnya">Alamat Sebelumnya</string>
-    <string name="rw_kk">RW KK</string>
+    <string name="rw_kk">RW</string>
     <string name="email">Email</string>
     <string name="nomor_telepon">Nomor Telepon</string>
     <string name="telegram">Telegram</string>
     <string name="cara_hubungi_warga">Cara Hubungi Warga</string>
-    <string name="dusun_kk">Dusun KK</string>
+    <string name="dusun_kk">Dusun</string>
     <string name="data_diri">DATA DIRI</string>
     <string name="nama_lengkap_tanpa_gelar">Nama Lengkap (Tanpa Gelar)</string>
     <string name="status_kepemilikan_identitas">Status Kepemilikan Identitas</string>
@@ -101,8 +101,8 @@
 
     <string name="data_perkawinan">STATUS PERKAWINAN</string>
     <string name="nomor_akta_nikah">Nomor Akta Nikah (Buku Nikah)</string>
-    <string name="tanggal_perkawinan">Tanggal Perkawinan (Diisi jika status KAWIN)</string>
-    <string name="tanggal_perceraian">Tanggal Perceraian (Diisi jika status CERAI)</string>
+    <string name="tanggal_perkawinan">Tanggal Perkawinan (Wajib diisi apabila status KAWIN)</string>
+    <string name="tanggal_perceraian">Tanggal Perceraian (Wajib diisi apabila status CERAI)</string>
 
 
     <string name="data_kesehatan">DATA KESEHATAN</string>
@@ -596,7 +596,9 @@
     <string name="err_hubung_warga_field">Cara hubung warga tidak boleh kosong</string>
     <string name="err_status_kawin_field">Status kawin tidak boleh kosong</string>
     <string name="err_golongan_darah_field">Golongan darah tidak boleh kosong</string>
-    <string name="search_nik">Cari NIK</string>
+
+
+    <string name="search_nik_penduduk">Cari NIK penduduk</string>
     <string name="nik_search">Periksa kembali NIK yang ingin Anda cari</string>
     <string name="cari">Cari</string>
 
@@ -610,18 +612,40 @@
     <string name="error_update_data">Data gagal diperbarui</string>
 
 
+    <string name="scan_ktp">Scan KTP</string>
+    <string name="scan_kk">Scan Kartu Keluarga</string>
+
     <string name="penduduk_list_title">Data Penduduk</string>
     <string name="edit_penduduk_title">Edit Data Penduduk</string>
-    <string name="ktp_ocr_screen">Scan KTP</string>
-    <string name="preview_ktp_label">Unggah Gambar KTP</string>
+
+    <string name="edit_user_title">Edit Data User</string>
+    <string name="edit_user">Edit User</string>
+
+
+    <string name="preview_ktp_label">Unggah gambar KTP</string>
+    <string name="preview_kk_label">Unggah gambar Kartu Keluarga</string>
+    <string name="preview_image_ktp">Preview gambar KTP</string>
+    <string name="preview_image_kk">Preview gambar Kartu Keluarga</string>
+
     <string name="back">Kembali</string>
     <string name="flash_camera_content_desc">Flash kamera</string>
 
-    <string name="camera_error_message">Maaf, telah terjadi kesalahan</string>
-    <string name="picker_error_message">Tidak ada media yang dipilih</string>
-    <string name="photo_picker_error_message">Photo Picker tidak didukung pada perangkat Anda</string>
+    <string name="ktp_ocr_screen">Scan KTP</string>
+    <string name="result_ktp_ocr_screen">Hasil Scan KTP</string>
+
+    <string name="kk_ocr_screen">Scan Kartu Keluarga</string>
+    <string name="result_kk_ocr_screen">Hasil Kartu Keluarga</string>
+
 
     <string name="capture_photo">Mohon tunggu</string>
+    <string name="raw_text_field">Raw Text</string>
+    <string name="penduduk_list_screen">Data Penduduk</string>
+
+
+    <string name="description_warning_ocr_ktp">Hasil scan KTP kemungkinan tidak akurat. Selalu lakukan pengecekan kembali sebelum mengirimkan data.</string>
+    <string name="description_ktp_ocr">Silahkan lakukan pemindaian dokumen berupa Kartu Tanda Penduduk (KTP).</string>
+    <string name="description_kk_ocr">Silahkan lakukan pemindaian dokumen berupa Kartu Keluarga (KK).</string>
+    <string name="pin_hint">* * * * * *</string>
 
 
 </resources>

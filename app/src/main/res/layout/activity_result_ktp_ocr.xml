@@ -5,32 +5,29 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.user.detail.DetailPendudukActivity">
-
+    tools:context=".ui.user.ocr.result.ResultKtpOcrActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/edit_penduduk_title" />
-
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/result_ktp_ocr_screen" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include
-        android:id="@+id/content_edit_data"
-        layout="@layout/content_edit_data" />
-
 
     <include
-        android:id="@+id/item_dialog_loading"
-        layout="@layout/item_dialog_loading"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:id="@+id/content_result_ktp_ocr"
+        layout="@layout/content_result_ktp_ocr" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

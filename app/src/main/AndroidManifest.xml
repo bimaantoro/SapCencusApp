@@ -21,10 +21,25 @@
         android:theme="@style/Theme.SnapCencus"
         tools:targetApi="31">
         <activity
-            android:name=".ui.user.ocr.camera.CameraActivity"
+            android:name=".ui.admin.edit.EditUserActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.user.ocr.ktp.ResultKtpActivity"
+            android:name=".ui.admin.add.AddUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.PinAuthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.ocr.kk.result.ResultKKOcrActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.ocr.kk.KKOcrActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.ocr.result.ResultKtpOcrActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.ocr.camera.CameraActivity"
             android:exported="false" />
         <activity
             android:name=".ui.user.ocr.ktp.KtpOcrActivity"
@@ -52,21 +67,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.pin.PinActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.user.ktp.camera.KtpCameraActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.user.kk.KKResultActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.user.kk.KKScanActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.user.ktp.result.KtpResultActivity"
-            android:exported="true" />
-
-        <!-- Trigger Google Play services to install the backported photo picker module. -->
+            android:exported="false" /> <!-- Trigger Google Play services to install the backported photo picker module. -->
         <!-- suppress AndroidDomInspection -->
         <service
             android:name="com.google.android.gms.metadata.ModuleDependencies"

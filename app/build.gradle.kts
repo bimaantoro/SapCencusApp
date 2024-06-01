@@ -57,6 +57,7 @@ dependencies {
 
     // mlkit
     implementation(libs.text.recognition)
+    implementation(libs.entity.extraction)
 
     // cameraX
     implementation(libs.androidx.camera.camera2)

@@ -8,9 +8,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.desabulila.snapcencus.R
 import com.desabulila.snapcencus.databinding.ActivityMainUserBinding
-import com.desabulila.snapcencus.ui.user.ktp.result.KtpResultActivity
 import com.desabulila.snapcencus.ui.user.list.PendudukListActivity
 import com.desabulila.snapcencus.ui.user.ocr.ktp.KtpOcrActivity
+import com.desabulila.snapcencus.ui.user.ocr.result.ResultKtpOcrActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainUserActivity : AppCompatActivity() {
@@ -57,7 +57,7 @@ class MainUserActivity : AppCompatActivity() {
             }
 
             setNeutralButton(R.string.neutral_button_ocr) { _, _ ->
-                val intent = Intent(this@MainUserActivity, KtpResultActivity::class.java)
+                val intent = Intent(this@MainUserActivity, ResultKtpOcrActivity::class.java)
                 startActivity(intent)
             }
                 .create()
