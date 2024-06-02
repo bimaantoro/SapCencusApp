@@ -21,6 +21,17 @@
         android:theme="@style/Theme.SnapCencus"
         tools:targetApi="31">
         <activity
+            android:name=".ui.onboarding.OnBoardingActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity
             android:name=".ui.admin.edit.EditUserActivity"
             android:exported="false" />
         <activity
@@ -52,22 +63,16 @@
             android:exported="false" />
         <activity
             android:name=".ui.user.main.MainUserActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".ui.user.list.PendudukListActivity"
             android:exported="false" />
         <activity
             android:name=".ui.user.search.SearchPendudukActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.pin.PinActivity"
-            android:exported="false" /> <!-- Trigger Google Play services to install the backported photo picker module. -->
+
+
+        <!-- Trigger Google Play services to install the backported photo picker module. -->
         <!-- suppress AndroidDomInspection -->
         <service
             android:name="com.google.android.gms.metadata.ModuleDependencies"

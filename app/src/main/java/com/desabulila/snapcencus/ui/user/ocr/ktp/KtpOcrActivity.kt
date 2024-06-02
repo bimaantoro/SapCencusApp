@@ -28,6 +28,7 @@ import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
+import java.util.regex.Pattern
 
 class KtpOcrActivity : AppCompatActivity() {
 
@@ -165,6 +166,7 @@ class KtpOcrActivity : AppCompatActivity() {
 
         val textRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
         val inputImage: InputImage = InputImage.fromFilePath(this, uri)
+        val ktpData = KtpModel()
         textRecognizer.process(inputImage)
             .addOnSuccessListener { visionText: Text ->
                 val detectedText = visionText.text
@@ -172,23 +174,43 @@ class KtpOcrActivity : AppCompatActivity() {
                     Log.d("MAIN-detectedText", detectedText)
                     binding.progressBar.visibility = View.GONE
 
-                    val ktpData = parseKtpData(detectedText)
-
-                    val intent = Intent(this, ResultKtpOcrActivity::class.java)
-                    intent.putExtra(ResultKtpOcrActivity.EXTRA_RESULT, ktpData)
-                    startActivity(intent)
-
                     for (block in visionText.textBlocks) {
                         val blockText = block.text
-                        Log.d("MAIN-block", blockText)
-                        for (line in block.lines) {
-                            val lineText = line.text
-                            Log.d("MAIN-line", lineText)
-                            for (element in line.elements) {
-                                val elementText = element.text
-                                Log.d("MAIN-element", elementText)
-                            }
+
+                        val regexNikPattern = "\\d{16}"
+
+                        val filteredNik = blockText
+                            .replace("O", "0")
+                            .replace("l", "1")
+                            .replace("b", "6")
+                            .replace("\\?", "7")
+                            .replace(" ", "")
+
+                        val pattern = Pattern.compile(regexNikPattern)
+                        val matcher = pattern.matcher(filteredNik)
+
+                        if (matcher.find()) {
+                            ktpData.nik = matcher.group()
                         }
+
+                        val intent = Intent(this, ResultKtpOcrActivity::class.java).apply {
+                            putExtra("nik", ktpData.nik)
+                            putExtra("nama", ktpData.nama)
+                            putExtra("tempatLahir", ktpData.tempatLahir)
+                            putExtra("tanggalLahir", ktpData.tanggalLahir)
+                            putExtra("jenisKelamin", ktpData.jenisKelamin)
+                            putExtra("golonganDarah", ktpData.golDarah)
+                            putExtra("alamat", ktpData.alamat)
+                            putExtra("rtRw", ktpData.rtRw)
+                            putExtra("kel", ktpData.kel)
+                            putExtra("kec", ktpData.kec)
+                            putExtra("agama", ktpData.agama)
+                            putExtra("statusPerkawinan", ktpData.statusKawin)
+                            putExtra("pekerjaan", ktpData.pekerjaan)
+                            putExtra("kewarganegaraan", ktpData.statusWargaNegara)
+                        }
+
+                        startActivity(intent)
                     }
 
                 } else {

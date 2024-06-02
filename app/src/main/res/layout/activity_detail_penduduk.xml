@@ -23,7 +23,7 @@
 
     <include
         android:id="@+id/content_edit_data"
-        layout="@layout/content_edit_data" />
+        layout="@layout/content_detail_data" />
 
 
     <include

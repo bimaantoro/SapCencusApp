@@ -2,11 +2,10 @@
     <string name="app_name">SnapCencus</string>
     <string name="welcome">Selamat Datang</string>
 
-    <string name="logo_bulila">Logo Desa Bulila</string>
-
     <string name="show_data_penduduk">Lihat Data Penduduk</string>
     <string name="scan_dokumen">Scan Dokumen</string>
-    <string name="logout">Logout</string>
+    
+    <string name="logout">Log Keluar</string>
 
     <string name="title_ocr">Gunakan OCR</string>
     <string name="message_ocr">Apakah Anda ingin menggunakan OCR untuk memindai data KTP?</string>
@@ -489,6 +488,11 @@
     <string name="wna">WNA</string>
     <string name="dua_kewarganegaraan">DUA KEWARGANEGARAAN</string>
 
+
+    <string name="pilih_role">Pilih Role</string>
+    <string name="role_admin">Admin</string>
+    <string name="role_aparat_desa">Aparat Desa</string>
+
     <string name="pilih_dusun">Pilih Dusun</string>
     <string name="dusun_1">I</string>
     <string name="dusun_2">II</string>
@@ -624,11 +628,15 @@
 
     <string name="preview_ktp_label">Unggah gambar KTP</string>
     <string name="preview_kk_label">Unggah gambar Kartu Keluarga</string>
-    <string name="preview_image_ktp">Preview gambar KTP</string>
-    <string name="preview_image_kk">Preview gambar Kartu Keluarga</string>
+    
 
     <string name="back">Kembali</string>
+    
+    
     <string name="flash_camera_content_desc">Flash kamera</string>
+    <string name="image_ktp_content_desc">Preview gambar KTP</string>
+    <string name="image_kk_content_desc">Preview gambar Kartu Keluarga</string>
+    <string name="logo_bulila_content_desc">Logo Desa Bulila</string>
 
     <string name="ktp_ocr_screen">Scan KTP</string>
     <string name="result_ktp_ocr_screen">Hasil Scan KTP</string>
@@ -645,7 +653,10 @@
     <string name="description_warning_ocr_ktp">Hasil scan KTP kemungkinan tidak akurat. Selalu lakukan pengecekan kembali sebelum mengirimkan data.</string>
     <string name="description_ktp_ocr">Silahkan lakukan pemindaian dokumen berupa Kartu Tanda Penduduk (KTP).</string>
     <string name="description_kk_ocr">Silahkan lakukan pemindaian dokumen berupa Kartu Keluarga (KK).</string>
+
     <string name="pin_hint">* * * * * *</string>
+
+    <string name="masuk_sebagai">Masuk sebagai</string>
 
 
 </resources>

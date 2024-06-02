@@ -499,4 +499,10 @@
 
     </string-array>
 
+    <string-array name="role">
+        <item>@string/pilih_role</item>
+        <item>@string/role_admin</item>
+        <item>@string/role_aparat_desa</item>
+    </string-array>
+
 </resources>

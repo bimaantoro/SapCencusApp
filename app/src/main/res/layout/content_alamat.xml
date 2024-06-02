@@ -288,7 +288,7 @@
         android:background="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinNarahubung" />
+        app:layout_constraintTop_toBottomOf="@id/spinCaraHubungWarga" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

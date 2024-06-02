@@ -1,13 +1,11 @@
 package com.desabulila.snapcencus.ui.user.ocr.result
 
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.desabulila.snapcencus.R
-import com.desabulila.snapcencus.data.model.KtpModel
 import com.desabulila.snapcencus.databinding.ActivityResultKtpOcrBinding
 
 class ResultKtpOcrActivity : AppCompatActivity() {
@@ -31,40 +29,47 @@ class ResultKtpOcrActivity : AppCompatActivity() {
         setupData()
     }
 
+    private fun setupData() {
+        val nik = intent.getStringExtra("nik")
+        val nama = intent.getStringExtra("nama")
+        val tempatLahir = intent.getStringExtra("tempatLahir")
+        val tanggalLahir = intent.getStringExtra("tanggalLahir")
+        val jenisKelamin = intent.getStringExtra("jenisKelamin")
+        val golonganDarah = intent.getStringExtra("golonganDarah")
+        val alamat = intent.getStringExtra("alamat")
+        val rtRw = intent.getStringExtra("rtRw")
+        val kelurahan = intent.getStringExtra("kel")
+        val kecamatan = intent.getStringExtra("kec")
+        val agama = intent.getStringExtra("agama")
+        val statusPerkawinan = intent.getStringExtra("statusPerkawinan")
+        val pekerjaan = intent.getStringExtra("pekerjaan")
+        val statusKewarnegaraan = intent.getStringExtra("kewarganegaraan")
+
+        binding.contentResultKtpOcr.contentFieldKtpOcr.apply {
+            nikEdt.setText(nik)
+            namaEdt.setText(nama)
+            tempatLahirEdt.setText(tempatLahir)
+            tglLahirResult.text = tanggalLahir
+            jenisKelaminEdt.setText(jenisKelamin)
+            edtGolDarah.setText(golonganDarah)
+            edtAlamat.setText(alamat)
+            edtRt.setText(rtRw)
+            edtRw.setText(rtRw)
+            edtKel.setText(kelurahan)
+            edtKec.setText(kecamatan)
+            edtAgama.setText(agama)
+            edtStatusKawin.setText(statusPerkawinan)
+            edtPekerjaan.setText(pekerjaan)
+            edtKewarganegaraan.setText(statusKewarnegaraan)
+        }
+    }
+
     private fun setupAction() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.topAppBar.setNavigationOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
-    }
-
-    private fun setupData() {
-        val ktpData = if (Build.VERSION.SDK_INT >= 33) {
-            intent.getParcelableExtra(EXTRA_RESULT, KtpModel::class.java)
-        } else {
-            @Suppress("DEPRECATION")
-            intent.getParcelableExtra(EXTRA_RESULT)
-        }
-
-        binding.contentResultKtpOcr.contentFieldKtpOcr.apply {
-            nikEdt.setText(ktpData?.nik ?: "")
-            namaEdt.setText(ktpData?.nama ?: "")
-            tempatLahirEdt.setText(ktpData?.tempatLahir ?: "")
-            tglLahirResult.text = ktpData?.tanggalLahir ?: ""
-            jenisKelaminEdt.setText(ktpData?.jenisKelamin ?: "")
-            edtAlamat.setText(ktpData?.alamat ?: "")
-            edtRt.setText(ktpData?.rt ?: "")
-            edtRw.setText(ktpData?.rw ?: "")
-            edtKel.setText(ktpData?.kel ?: "")
-            edtKec.setText(ktpData?.kec ?: "")
-            edtAgama.setText(ktpData?.agama ?: "")
-            edtStatusKawin.setText(ktpData?.statusKawin ?: "")
-            edtPekerjaan.setText(ktpData?.pekerjaan ?: "")
-            edtKewarganegaraan.setText(ktpData?.statusWargaNegara ?: "")
-        }
-
-
     }
 
 

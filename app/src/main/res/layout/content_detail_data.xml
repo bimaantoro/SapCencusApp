@@ -7,14 +7,14 @@
     android:layout_height="match_parent"
     android:background="@drawable/top_rounded_bg"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_edit_data">
+    tools:showIn="@layout/activity_detail_penduduk">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <include
-            android:id="@+id/lyContentDataDiri"
+            android:id="@+id/content_data_diri"
             layout="@layout/content_data_diri"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -23,76 +23,76 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <include
-            android:id="@+id/lyContentDataLahir"
+            android:id="@+id/content_data_lahir"
             layout="@layout/content_data_kelahiran"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lyContentDataDiri" />
+            app:layout_constraintTop_toBottomOf="@+id/content_data_diri" />
 
         <include
-            android:id="@+id/lyContentPendidikan"
+            android:id="@+id/content_data_pendidikan_pekerjaan"
             layout="@layout/content_data_pendidikan_pekerjaan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lyContentDataLahir" />
+            app:layout_constraintTop_toBottomOf="@+id/content_data_lahir" />
 
         <include
-            android:id="@+id/lyContentKewarganegaraan"
+            android:id="@+id/content_data_kewarganegaraan"
             layout="@layout/content_data_kewarganegaraan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lyContentPendidikan" />
+            app:layout_constraintTop_toBottomOf="@+id/content_data_pendidikan_pekerjaan" />
 
         <include
-            android:id="@+id/lyContentOrtu"
+            android:id="@+id/content_data_ortu"
             layout="@layout/content_data_ortu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lyContentKewarganegaraan" />
+            app:layout_constraintTop_toBottomOf="@+id/content_data_kewarganegaraan" />
 
         <include
-            android:id="@+id/lyContentAlamat"
+            android:id="@+id/content_data_alamat"
             layout="@layout/content_alamat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lyContentOrtu" />
+            app:layout_constraintTop_toBottomOf="@+id/content_data_ortu" />
 
         <include
-            android:id="@+id/lyContentKawin"
+            android:id="@+id/content_data_perkawinan"
             layout="@layout/content_data_perkawinan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lyContentAlamat" />
+            app:layout_constraintTop_toBottomOf="@+id/content_data_alamat" />
 
         <include
-            android:id="@+id/lyContentKesehatan"
+            android:id="@+id/content_data_kesehatan"
             layout="@layout/content_data_kesehatan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lyContentKawin" />
+            app:layout_constraintTop_toBottomOf="@+id/content_data_perkawinan" />
 
         <include
-            android:id="@+id/lyContentLainnya"
+            android:id="@+id/content_data_lainnya"
             layout="@layout/content_data_lainnya"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lyContentKesehatan" />
+            app:layout_constraintTop_toBottomOf="@+id/content_data_kesehatan" />
 
         <Button
             android:id="@+id/btnSave"
@@ -109,7 +109,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lyContentLainnya"
+            app:layout_constraintTop_toBottomOf="@+id/content_data_lainnya"
             app:shapeAppearance="@style/RoundShapeButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

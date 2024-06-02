@@ -1,261 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_marginHorizontal="8dp"
-    android:layout_marginVertical="4dp"
-    card_view:cardCornerRadius="20dp"
-    card_view:cardUseCompatPadding="true">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvHeadline"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="14dp">
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/green"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gHorizontal"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/tvHeadline"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:text="@string/anda_masuk_sebagai"
-            android:textColor="@color/black"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvSubHeadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/desa_bulila"
+        android:textAlignment="center"
+        android:textColor="@color/green"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHeadline" />
 
-        <TextView
-            android:id="@+id/tvRole"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textStyle="bold"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@id/tvHeadline"
-            tools:text="Admin!" />
-
-        <TextView
-            android:id="@+id/tvSubHeadline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/masukkan_pin"
-            android:textColor="@color/black"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@id/tvRole" />
-
-        <EditText
-            android:id="@+id/EdtInputPin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:background="@drawable/bg_rounded"
-            android:hint="@string/pin_hint"
-            android:inputType="numberPassword"
-            android:maxLength="6"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tvSubHeadline"
-            tools:ignore="Autofill" />
-
-        <Button
-            android:id="@+id/btn1"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="@color/white"
-            android:text="@string/press_1"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            card_view:layout_constraintEnd_toStartOf="@+id/btn2"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/EdtInputPin" />
-
-        <Button
-            android:id="@+id/btn2"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:text="@string/press_2"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            card_view:layout_constraintBottom_toBottomOf="@+id/btn1"
-            card_view:layout_constraintEnd_toStartOf="@+id/btn3"
-            card_view:layout_constraintStart_toEndOf="@+id/btn1"
-            card_view:layout_constraintTop_toTopOf="@+id/btn1" />
-
-        <Button
-            android:id="@+id/btn3"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:backgroundTint="@color/white"
-            android:text="@string/press_3"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            card_view:layout_constraintBottom_toBottomOf="@+id/btn2"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/btn2"
-            card_view:layout_constraintTop_toTopOf="@+id/btn2" />
-
-        <Button
-            android:id="@+id/btn4"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:backgroundTint="@color/white"
-            android:text="@string/press_4"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            card_view:layout_constraintEnd_toStartOf="@+id/btn5"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/btn1" />
-
-        <Button
-            android:id="@+id/btn5"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:text="@string/press_5"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            card_view:layout_constraintBottom_toBottomOf="@+id/btn4"
-            card_view:layout_constraintEnd_toStartOf="@+id/btn6"
-            card_view:layout_constraintStart_toEndOf="@+id/btn4"
-            card_view:layout_constraintTop_toTopOf="@+id/btn4" />
-
-        <Button
-            android:id="@+id/btn6"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:backgroundTint="@color/white"
-            android:text="@string/press_6"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            card_view:layout_constraintBottom_toBottomOf="@+id/btn5"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/btn5"
-            card_view:layout_constraintTop_toTopOf="@+id/btn5" />
-
-        <Button
-            android:id="@+id/btn7"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:backgroundTint="@color/white"
-            android:text="@string/press_7"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            card_view:layout_constraintEnd_toStartOf="@+id/btn8"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/btn4" />
-
-        <Button
-            android:id="@+id/btn8"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:text="@string/press_8"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            card_view:layout_constraintBottom_toBottomOf="@+id/btn7"
-            card_view:layout_constraintEnd_toStartOf="@+id/btn9"
-            card_view:layout_constraintStart_toEndOf="@+id/btn7"
-            card_view:layout_constraintTop_toTopOf="@+id/btn7" />
-
-        <Button
-            android:id="@+id/btn9"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:backgroundTint="@color/white"
-            android:text="@string/press_9"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            card_view:layout_constraintBottom_toBottomOf="@+id/btn8"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/btn8"
-            card_view:layout_constraintTop_toTopOf="@+id/btn8" />
-
-        <Button
-            android:id="@+id/btnClear"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/white"
-            android:text="@string/clear"
-            android:textColor="@color/red"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toStartOf="@+id/btn0"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/btn7" />
-
-        <Button
-            android:id="@+id/btn0"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:text="@string/press_0"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            card_view:layout_constraintBottom_toBottomOf="@+id/btnClear"
-            card_view:layout_constraintEnd_toStartOf="@+id/btnOk"
-            card_view:layout_constraintStart_toEndOf="@+id/btnClear"
-            card_view:layout_constraintTop_toTopOf="@+id/btnClear" />
-
-        <Button
-            android:id="@+id/btnOk"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:backgroundTint="@color/white"
-            android:text="@string/ok"
-            android:textColor="@color/green"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            card_view:layout_constraintBottom_toBottomOf="@+id/btn0"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/btn0"
-            card_view:layout_constraintTop_toTopOf="@+id/btn0" />
+    <include
+        android:id="@+id/item_pin_auth"
+        layout="@layout/item_pin_auth"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubHeadline" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
 
-</androidx.cardview.widget.CardView>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
+</androidx.constraintlayout.widget.ConstraintLayout>

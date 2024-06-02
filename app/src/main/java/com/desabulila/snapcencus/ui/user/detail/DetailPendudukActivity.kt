@@ -62,80 +62,80 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
 
     private fun setupUpdatePenduduk() {
         binding.contentEditData.btnSave.setOnClickListener {
-            val nik = binding.contentEditData.lyContentDataDiri.edtNik.text.toString().trim()
-            val nama = binding.contentEditData.lyContentDataDiri.edtNama.text.toString()
+            val nik = binding.contentEditData.contentDataDiri.edtNik.text.toString().trim()
+            val nama = binding.contentEditData.contentDataDiri.edtNama.text.toString()
             val statusKtpEl =
-                binding.contentEditData.lyContentDataDiri.spinIdentitasEl.selectedItemPosition
+                binding.contentEditData.contentDataDiri.spinIdentitasEl.selectedItemPosition
             val statusRekam =
-                binding.contentEditData.lyContentDataDiri.spinStatusRekam.selectedItemPosition
+                binding.contentEditData.contentDataDiri.spinStatusRekam.selectedItemPosition
             val tagIdCard =
-                binding.contentEditData.lyContentDataDiri.edtTagIdCard.text.toString().trim()
+                binding.contentEditData.contentDataDiri.edtTagIdCard.text.toString().trim()
             val tempatCetakKtp =
-                binding.contentEditData.lyContentDataDiri.edtTmptPenerbitanKtp.text.toString()
+                binding.contentEditData.contentDataDiri.edtTmptPenerbitanKtp.text.toString()
             val tanggalCetakKtp =
-                binding.contentEditData.lyContentDataDiri.tglPenerbitanKtpResult.text.toString()
+                binding.contentEditData.contentDataDiri.tglPenerbitanKtpResult.text.toString()
             val noKkSebelumnya =
-                binding.contentEditData.lyContentDataDiri.edtNoKKSblm.text.toString().trim()
+                binding.contentEditData.contentDataDiri.edtNoKKSblm.text.toString().trim()
             val statusHubKeluarga =
-                binding.contentEditData.lyContentDataDiri.spinHubKeluarga.selectedItemPosition
+                binding.contentEditData.contentDataDiri.spinHubKeluarga.selectedItemPosition
             val jenisKelamin =
-                binding.contentEditData.lyContentDataDiri.spinJenisKelamin.selectedItemPosition
-            val agama = binding.contentEditData.lyContentDataDiri.spinAgama.selectedItemPosition
+                binding.contentEditData.contentDataDiri.spinJenisKelamin.selectedItemPosition
+            val agama = binding.contentEditData.contentDataDiri.spinAgama.selectedItemPosition
             val statusPenduduk =
-                binding.contentEditData.lyContentDataDiri.spinStatusPenduduk.selectedItemPosition
+                binding.contentEditData.contentDataDiri.spinStatusPenduduk.selectedItemPosition
 
 
             val noaktaLahir =
-                binding.contentEditData.lyContentDataLahir.edtNoAkta.text.toString().trim()
+                binding.contentEditData.contentDataLahir.edtNoAkta.text.toString().trim()
             val tempatLahir =
-                binding.contentEditData.lyContentDataLahir.edtTempatLahir.text.toString()
+                binding.contentEditData.contentDataLahir.edtTempatLahir.text.toString()
             val tanggalLahir =
-                binding.contentEditData.lyContentDataLahir.tglLahirResult.text.toString()
+                binding.contentEditData.contentDataLahir.tglLahirResult.text.toString()
             val waktuLahir =
-                binding.contentEditData.lyContentDataLahir.waktuLahirResult.text.toString()
+                binding.contentEditData.contentDataLahir.waktuLahirResult.text.toString()
             val tempatDilahirkan =
-                binding.contentEditData.lyContentDataLahir.spinTempatDilahirkan.selectedItemPosition
+                binding.contentEditData.contentDataLahir.spinTempatDilahirkan.selectedItemPosition
             val jeniKelahiran =
-                binding.contentEditData.lyContentDataLahir.spinJenisKelahiran.selectedItemPosition
+                binding.contentEditData.contentDataLahir.spinJenisKelahiran.selectedItemPosition
             val kelahiranAnakKe =
-                binding.contentEditData.lyContentDataLahir.edtAnakKe.text.toString()
+                binding.contentEditData.contentDataLahir.edtAnakKe.text.toString()
             val penolongKelahiran =
-                binding.contentEditData.lyContentDataLahir.spinPenolongKelahiran.selectedItemPosition
+                binding.contentEditData.contentDataLahir.spinPenolongKelahiran.selectedItemPosition
             val beratLahir =
-                binding.contentEditData.lyContentDataLahir.edtBeratLahir.text.toString()
+                binding.contentEditData.contentDataLahir.edtBeratLahir.text.toString()
             val panjangLahir =
-                binding.contentEditData.lyContentDataLahir.edtPanjangLahir.text.toString()
+                binding.contentEditData.contentDataLahir.edtPanjangLahir.text.toString()
 
 
             val pendidikan =
-                binding.contentEditData.lyContentPendidikan.spinPendKK.selectedItemPosition
+                binding.contentEditData.contentDataPendidikanPekerjaan.spinPendKK.selectedItemPosition
             val pendidikanSedang =
-                binding.contentEditData.lyContentPendidikan.spinPendTempuh.selectedItemPosition
+                binding.contentEditData.contentDataPendidikanPekerjaan.spinPendTempuh.selectedItemPosition
             val pekerjaan =
-                binding.contentEditData.lyContentPendidikan.spinPekerjaan.selectedItemPosition
+                binding.contentEditData.contentDataPendidikanPekerjaan.spinPekerjaan.selectedItemPosition
 
             val suku =
-                binding.contentEditData.lyContentKewarganegaraan.spinSuku.selectedItemPosition
+                binding.contentEditData.contentDataKewarganegaraan.spinSuku.selectedItemPosition
             val statusWargaNegara =
-                binding.contentEditData.lyContentKewarganegaraan.spinStatusWargaNegara.selectedItemPosition
+                binding.contentEditData.contentDataKewarganegaraan.spinStatusWargaNegara.selectedItemPosition
             val noPaspor =
-                binding.contentEditData.lyContentKewarganegaraan.edtNoPaspor.text.toString()
+                binding.contentEditData.contentDataKewarganegaraan.edtNoPaspor.text.toString()
             val tanggalAkhirPaspor =
-                binding.contentEditData.lyContentKewarganegaraan.expPasporResult.text.toString()
+                binding.contentEditData.contentDataKewarganegaraan.expPasporResult.text.toString()
             val noKitas =
-                binding.contentEditData.lyContentKewarganegaraan.edtNoKitas.text.toString()
+                binding.contentEditData.contentDataKewarganegaraan.edtNoKitas.text.toString()
             val negaraAsal =
-                binding.contentEditData.lyContentKewarganegaraan.edtNegaraAsal.text.toString()
+                binding.contentEditData.contentDataKewarganegaraan.edtNegaraAsal.text.toString()
 
-            val nikAyah = binding.contentEditData.lyContentOrtu.edtNikAyah.text.toString()
-            val namaAyah = binding.contentEditData.lyContentOrtu.edtNamaAyah.text.toString()
-            val nikIbu = binding.contentEditData.lyContentOrtu.edtNikIbu.text.toString()
-            val namaIbu = binding.contentEditData.lyContentOrtu.edtNamaIbu.text.toString()
+            val nikAyah = binding.contentEditData.contentDataOrtu.edtNikAyah.text.toString()
+            val namaAyah = binding.contentEditData.contentDataOrtu.edtNamaAyah.text.toString()
+            val nikIbu = binding.contentEditData.contentDataOrtu.edtNikIbu.text.toString()
+            val namaIbu = binding.contentEditData.contentDataOrtu.edtNamaIbu.text.toString()
 
 
-            val alamat = binding.contentEditData.lyContentAlamat.edtAlamat.text.toString()
+            val alamat = binding.contentEditData.contentDataAlamat.edtAlamat.text.toString()
             val dusun =
-                when (binding.contentEditData.lyContentAlamat.spinDusun.selectedItemPosition) {
+                when (binding.contentEditData.contentDataAlamat.spinDusun.selectedItemPosition) {
                     1 -> "I"
                     2 -> "II"
                     3 -> "III"
@@ -143,57 +143,61 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
                     5 -> "V"
                     else -> ""
                 }
-            val rw = binding.contentEditData.lyContentAlamat.spinRwKK.selectedItemPosition
-            val rt = binding.contentEditData.lyContentAlamat.spinRtKK.selectedItemPosition
+            val rw = binding.contentEditData.contentDataAlamat.spinRwKK.selectedItemPosition
+            val rt = binding.contentEditData.contentDataAlamat.spinRtKK.selectedItemPosition
             val alamatSebelumnya =
-                binding.contentEditData.lyContentAlamat.edtAlamatSblm.text.toString()
-            val noTelepon = binding.contentEditData.lyContentAlamat.edtNoTelpon.text.toString()
-            val email = binding.contentEditData.lyContentAlamat.edtEmail.text.toString()
-            val telegram = binding.contentEditData.lyContentAlamat.edtTelegram.text.toString()
+                binding.contentEditData.contentDataAlamat.edtAlamatSblm.text.toString()
+            val noTelepon = binding.contentEditData.contentDataAlamat.edtNoTelpon.text.toString()
+            val email = binding.contentEditData.contentDataAlamat.edtEmail.text.toString()
+            val telegram = binding.contentEditData.contentDataAlamat.edtTelegram.text.toString()
             val caraHubungWarga =
-                when (binding.contentEditData.lyContentAlamat.spinCaraHubungWarga.selectedItemPosition) {
+                when (binding.contentEditData.contentDataAlamat.spinCaraHubungWarga.selectedItemPosition) {
                     1 -> "Email"
                     2 -> "Telegram"
                     else -> ""
                 }
 
             val statusPerkawinan =
-                binding.contentEditData.lyContentKawin.spinStatusKawin.selectedItemPosition
-            val noAktaNikah = binding.contentEditData.lyContentKawin.edtNoAktaNikah.text.toString()
+                binding.contentEditData.contentDataPerkawinan.spinStatusKawin.selectedItemPosition
+            val noAktaNikah =
+                binding.contentEditData.contentDataPerkawinan.edtNoAktaNikah.text.toString()
             val tanggalNikah =
-                binding.contentEditData.lyContentKawin.tanggalKawinResult.text.toString()
-            val noAktaCerai = binding.contentEditData.lyContentKawin.edtAktaCerai.text.toString()
-            val tanggalCerai = binding.contentEditData.lyContentKawin.tglCeraiResult.text.toString()
+                binding.contentEditData.contentDataPerkawinan.tanggalKawinResult.text.toString()
+            val noAktaCerai =
+                binding.contentEditData.contentDataPerkawinan.edtAktaCerai.text.toString()
+            val tanggalCerai =
+                binding.contentEditData.contentDataPerkawinan.tglCeraiResult.text.toString()
 
             val golonganDarah =
-                binding.contentEditData.lyContentKesehatan.spinGolDarah.selectedItemPosition
-            val cacat = binding.contentEditData.lyContentKesehatan.spinCacat.selectedItemPosition
+                binding.contentEditData.contentDataKesehatan.spinGolDarah.selectedItemPosition
+            val cacat = binding.contentEditData.contentDataKesehatan.spinCacat.selectedItemPosition
             val sakitMenahun =
-                binding.contentEditData.lyContentKesehatan.spinSakitMenahun.selectedItemPosition
+                binding.contentEditData.contentDataKesehatan.spinSakitMenahun.selectedItemPosition
             val caraKb =
-                binding.contentEditData.lyContentKesehatan.spinAkseptorKb.selectedItemPosition
+                binding.contentEditData.contentDataKesehatan.spinAkseptorKb.selectedItemPosition
             val statusKehamilan =
-                binding.contentEditData.lyContentKesehatan.spinStatusHamil.selectedItemPosition
+                binding.contentEditData.contentDataKesehatan.spinStatusHamil.selectedItemPosition
             val idAsuransi =
-                if (binding.contentEditData.lyContentKesehatan.spinAsrKesehatan.selectedItemPosition == 3) {
+                if (binding.contentEditData.contentDataKesehatan.spinAsrKesehatan.selectedItemPosition == 3) {
                     99
                 } else {
-                    binding.contentEditData.lyContentKesehatan.spinAsrKesehatan.selectedItemPosition
+                    binding.contentEditData.contentDataKesehatan.spinAsrKesehatan.selectedItemPosition
                 }
             val noAsuransi =
-                binding.contentEditData.lyContentKesehatan.edtNoAsuransi.text.toString()
+                binding.contentEditData.contentDataKesehatan.edtNoAsuransi.text.toString()
             val noBpjsKetenagakerjaan =
-                binding.contentEditData.lyContentKesehatan.edtNoBpjs.text.toString()
+                binding.contentEditData.contentDataKesehatan.edtNoBpjs.text.toString()
 
             val bacaHuruf =
-                binding.contentEditData.lyContentLainnya.spinBacaHuruf.selectedItemPosition
-            val keterangan = binding.contentEditData.lyContentLainnya.edtKeterangan.text.toString()
+                binding.contentEditData.contentDataLainnya.spinBacaHuruf.selectedItemPosition
+            val keterangan =
+                binding.contentEditData.contentDataLainnya.edtKeterangan.text.toString()
 
 
 
             when {
                 nik.isEmpty() -> {
-                    binding.contentEditData.lyContentDataDiri.edtNik.apply {
+                    binding.contentEditData.contentDataDiri.edtNik.apply {
                         error = getString(R.string.err_nama_field)
                         requestFocus()
                     }
@@ -201,7 +205,7 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
                 }
 
                 nama.isEmpty() -> {
-                    binding.contentEditData.lyContentDataDiri.edtNama.apply {
+                    binding.contentEditData.contentDataDiri.edtNama.apply {
                         error = getString(R.string.err_nama_field)
                         requestFocus()
                     }
@@ -502,7 +506,7 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
                     val bahasa = checkIsNull(resultState.data?.bahasaId)
 
                     // DATA DIRI
-                    binding.contentEditData.lyContentDataDiri.apply {
+                    binding.contentEditData.contentDataDiri.apply {
                         edtNik.setText(nik)
                         edtNama.setText(resultState.data?.nama)
                         edtTagIdCard.setText(resultState.data?.tagIdCard)
@@ -520,7 +524,7 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
                     }
 
                     // DATA KELAHIRAN
-                    binding.contentEditData.lyContentDataLahir.apply {
+                    binding.contentEditData.contentDataLahir.apply {
                         edtNoAkta.setText(resultState.data?.aktaLahir)
                         edtTempatLahir.setText(resultState.data?.tempatlahir)
                         edtAnakKe.setText(resultState.data?.kelahiranAnakKe)
@@ -537,7 +541,7 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
                     }
 
                     // DATA PENDIDIKAN dan PEKERJAAN
-                    binding.contentEditData.lyContentPendidikan.apply {
+                    binding.contentEditData.contentDataPendidikanPekerjaan.apply {
                         spinPendKK.setSelection(pendidikan.toInt())
                         spinPendTempuh.setSelection(pendidikanSedang.toInt())
                         spinPekerjaan.setSelection(pekerjaan.toInt())
@@ -545,7 +549,7 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
                     }
 
                     // DATA KEWARGANEGARAAN
-                    binding.contentEditData.lyContentKewarganegaraan.apply {
+                    binding.contentEditData.contentDataKewarganegaraan.apply {
                         spinSuku.setSelection(suku.toInt())
 
                         spinStatusWargaNegara.setSelection(wargaNegara.toInt())
@@ -559,7 +563,7 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
                     }
 
                     // DATA ORTU
-                    binding.contentEditData.lyContentOrtu.apply {
+                    binding.contentEditData.contentDataOrtu.apply {
                         edtNikAyah.setText(resultState.data?.ayahNik)
                         edtNamaAyah.setText(resultState.data?.namaAyah)
                         edtNikIbu.setText(resultState.data?.ibuNik)
@@ -567,7 +571,7 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
                     }
 
                     // DATA ALAMAT
-                    binding.contentEditData.lyContentAlamat.apply {
+                    binding.contentEditData.contentDataAlamat.apply {
                         edtAlamat.setText(resultState.data?.alamat)
                         edtAlamatSblm.setText(resultState.data?.alamatSebelumnya)
                         edtNoTelpon.setText(resultState.data?.telepon)
@@ -579,7 +583,7 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
                     }
 
                     // DATA KAWIN
-                    binding.contentEditData.lyContentKawin.apply {
+                    binding.contentEditData.contentDataPerkawinan.apply {
                         spinStatusKawin.setSelection(statusKawin.toInt())
 
                         edtNoAktaNikah.setText(resultState.data?.aktaPerkawinan)
@@ -591,7 +595,7 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
                     }
 
                     // DATA KESEHATAN
-                    binding.contentEditData.lyContentKesehatan.apply {
+                    binding.contentEditData.contentDataKesehatan.apply {
                         spinGolDarah.setSelection(golonganDarah.toInt())
                         spinCacat.setSelection(cacat.toInt())
                         spinSakitMenahun.setSelection(sakitMenahun.toInt())
@@ -605,7 +609,7 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
                     }
 
                     // DATA LAINNYA
-                    binding.contentEditData.lyContentLainnya.apply {
+                    binding.contentEditData.contentDataLainnya.apply {
                         spinBacaHuruf.setSelection(bahasa.toInt())
 
                         edtKeterangan.setText(resultState.data?.ket)
@@ -616,215 +620,227 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
     }
 
     private fun setupAction() {
-        binding.contentEditData.lyContentDataDiri.btnTglPenerbitanKtp.setOnClickListener {
+        binding.contentEditData.contentDataDiri.btnTglPenerbitanKtp.setOnClickListener {
             showDatePicker(PENERBITAN_KTP_DATE_PICKER)
         }
 
-        binding.contentEditData.lyContentDataLahir.btnTglLahir.setOnClickListener {
+        binding.contentEditData.contentDataLahir.btnTglLahir.setOnClickListener {
             showDatePicker(TANGGAL_LAHIR_DATE_PICKER)
         }
 
-        binding.contentEditData.lyContentDataLahir.btnWaktuLahir.setOnClickListener {
+        binding.contentEditData.contentDataLahir.btnWaktuLahir.setOnClickListener {
             showTimePicker(it)
         }
 
-        binding.contentEditData.lyContentKewarganegaraan.btnExpPaspor.setOnClickListener {
+        binding.contentEditData.contentDataKewarganegaraan.btnExpPaspor.setOnClickListener {
             showDatePicker(EXP_PASPOR_DATE_PICKER)
         }
 
 
-        binding.contentEditData.lyContentKawin.btnTanggalKawin.setOnClickListener {
+        binding.contentEditData.contentDataPerkawinan.btnTanggalKawin.setOnClickListener {
             showDatePicker(TANGGAL_KAWIN_DATE_PICKER)
         }
 
-        binding.contentEditData.lyContentKawin.btnTglCerai.setOnClickListener {
+        binding.contentEditData.contentDataPerkawinan.btnTglCerai.setOnClickListener {
             showDatePicker(TANGGAL_CERAI_DATE_PICKER)
         }
     }
 
     private fun setupViewSpinner() {
         setupSpinner(
-            binding.contentEditData.lyContentDataDiri.spinIdentitasEl,
+            binding.contentEditData.contentDataDiri.spinIdentitasEl,
             R.array.identitas_el
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentDataDiri.spinIdentitasEl,
+            binding.contentEditData.contentDataDiri.spinIdentitasEl,
             R.array.identitas_el
         )
 
         setupSpinner(
-            binding.contentEditData.lyContentDataDiri.spinStatusRekam,
+            binding.contentEditData.contentDataDiri.spinStatusRekam,
             R.array.status_rekam
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentDataDiri.spinStatusRekam,
+            binding.contentEditData.contentDataDiri.spinStatusRekam,
             R.array.status_rekam
         )
 
         setupSpinner(
-            binding.contentEditData.lyContentDataDiri.spinHubKeluarga,
+            binding.contentEditData.contentDataDiri.spinHubKeluarga,
             R.array.hubungan_keluarga
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentDataDiri.spinHubKeluarga,
+            binding.contentEditData.contentDataDiri.spinHubKeluarga,
             R.array.hubungan_keluarga
         )
 
         setupSpinner(
-            binding.contentEditData.lyContentDataDiri.spinJenisKelamin,
+            binding.contentEditData.contentDataDiri.spinJenisKelamin,
             R.array.jenis_kelamin
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentDataDiri.spinJenisKelamin,
+            binding.contentEditData.contentDataDiri.spinJenisKelamin,
             R.array.jenis_kelamin
         )
-        setupSpinner(binding.contentEditData.lyContentDataDiri.spinAgama, R.array.agama)
+        setupSpinner(binding.contentEditData.contentDataDiri.spinAgama, R.array.agama)
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentDataDiri.spinAgama,
+            binding.contentEditData.contentDataDiri.spinAgama,
             R.array.agama
         )
 
         setupSpinner(
-            binding.contentEditData.lyContentDataDiri.spinStatusPenduduk,
+            binding.contentEditData.contentDataDiri.spinStatusPenduduk,
             R.array.status_penduduk
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentDataDiri.spinStatusPenduduk,
+            binding.contentEditData.contentDataDiri.spinStatusPenduduk,
             R.array.status_penduduk
         )
 
         setupSpinner(
-            binding.contentEditData.lyContentDataLahir.spinTempatDilahirkan,
+            binding.contentEditData.contentDataLahir.spinTempatDilahirkan,
             R.array.tempat_lahir
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentDataLahir.spinTempatDilahirkan,
+            binding.contentEditData.contentDataLahir.spinTempatDilahirkan,
             R.array.tempat_lahir
         )
 
         setupSpinner(
-            binding.contentEditData.lyContentDataLahir.spinJenisKelahiran,
+            binding.contentEditData.contentDataLahir.spinJenisKelahiran,
             R.array.jenis_kelahiran
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentDataLahir.spinJenisKelahiran,
+            binding.contentEditData.contentDataLahir.spinJenisKelahiran,
             R.array.jenis_kelahiran
         )
 
         setupSpinner(
-            binding.contentEditData.lyContentDataLahir.spinPenolongKelahiran,
+            binding.contentEditData.contentDataLahir.spinPenolongKelahiran,
             R.array.penolong_kelahiran
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentDataLahir.spinPenolongKelahiran,
+            binding.contentEditData.contentDataLahir.spinPenolongKelahiran,
             R.array.penolong_kelahiran
         )
 
 
-        setupSpinner(binding.contentEditData.lyContentPendidikan.spinPendKK, R.array.pendidikan)
+        setupSpinner(
+            binding.contentEditData.contentDataPendidikanPekerjaan.spinPendKK,
+            R.array.pendidikan
+        )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentPendidikan.spinPendKK,
+            binding.contentEditData.contentDataPendidikanPekerjaan.spinPendKK,
             R.array.pendidikan
         )
 
         setupSpinner(
-            binding.contentEditData.lyContentPendidikan.spinPendTempuh,
+            binding.contentEditData.contentDataPendidikanPekerjaan.spinPendTempuh,
             R.array.pendidikan_sedang_dijalani
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentPendidikan.spinPendTempuh,
+            binding.contentEditData.contentDataPendidikanPekerjaan.spinPendTempuh,
             R.array.pendidikan_sedang_dijalani
         )
-        setupSpinner(binding.contentEditData.lyContentPendidikan.spinPekerjaan, R.array.pekerjaan)
+        setupSpinner(
+            binding.contentEditData.contentDataPendidikanPekerjaan.spinPekerjaan,
+            R.array.pekerjaan
+        )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentPendidikan.spinPekerjaan,
+            binding.contentEditData.contentDataPendidikanPekerjaan.spinPekerjaan,
             R.array.pekerjaan
         )
 
-        setupSpinner(binding.contentEditData.lyContentKewarganegaraan.spinSuku, R.array.suku)
+        setupSpinner(binding.contentEditData.contentDataKewarganegaraan.spinSuku, R.array.suku)
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentKewarganegaraan.spinSuku,
+            binding.contentEditData.contentDataKewarganegaraan.spinSuku,
             R.array.suku
         )
 
         setupSpinner(
-            binding.contentEditData.lyContentKewarganegaraan.spinStatusWargaNegara,
+            binding.contentEditData.contentDataKewarganegaraan.spinStatusWargaNegara,
             R.array.kewarnegaraan
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentKewarganegaraan.spinStatusWargaNegara,
+            binding.contentEditData.contentDataKewarganegaraan.spinStatusWargaNegara,
             R.array.kewarnegaraan
         )
 
-        setupSpinner(binding.contentEditData.lyContentAlamat.spinDusun, R.array.dusun)
+        setupSpinner(binding.contentEditData.contentDataAlamat.spinDusun, R.array.dusun)
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentAlamat.spinDusun,
+            binding.contentEditData.contentDataAlamat.spinDusun,
             R.array.dusun
         )
 
         setupSpinner(
-            binding.contentEditData.lyContentAlamat.spinCaraHubungWarga,
+            binding.contentEditData.contentDataAlamat.spinCaraHubungWarga,
             R.array.cara_hubung_warga
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentAlamat.spinCaraHubungWarga,
+            binding.contentEditData.contentDataAlamat.spinCaraHubungWarga,
             R.array.cara_hubung_warga
         )
 
-        setupSpinner(binding.contentEditData.lyContentKawin.spinStatusKawin, R.array.status_kawin)
+        setupSpinner(
+            binding.contentEditData.contentDataPerkawinan.spinStatusKawin,
+            R.array.status_kawin
+        )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentKawin.spinStatusKawin,
+            binding.contentEditData.contentDataPerkawinan.spinStatusKawin,
             R.array.status_kawin
         )
 
         setupSpinner(
-            binding.contentEditData.lyContentKesehatan.spinGolDarah,
+            binding.contentEditData.contentDataKesehatan.spinGolDarah,
             R.array.golongan_darah
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentKesehatan.spinGolDarah,
+            binding.contentEditData.contentDataKesehatan.spinGolDarah,
             R.array.golongan_darah
         )
 
-        setupSpinner(binding.contentEditData.lyContentKesehatan.spinCacat, R.array.jenis_cacat)
+        setupSpinner(binding.contentEditData.contentDataKesehatan.spinCacat, R.array.jenis_cacat)
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentKesehatan.spinCacat,
+            binding.contentEditData.contentDataKesehatan.spinCacat,
             R.array.jenis_cacat
         )
 
         setupSpinner(
-            binding.contentEditData.lyContentKesehatan.spinSakitMenahun,
+            binding.contentEditData.contentDataKesehatan.spinSakitMenahun,
             R.array.sakit_menahun
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentKesehatan.spinSakitMenahun,
+            binding.contentEditData.contentDataKesehatan.spinSakitMenahun,
             R.array.sakit_menahun
         )
 
-        setupSpinner(binding.contentEditData.lyContentKesehatan.spinAkseptorKb, R.array.cara_kb)
+        setupSpinner(binding.contentEditData.contentDataKesehatan.spinAkseptorKb, R.array.cara_kb)
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentKesehatan.spinAkseptorKb,
+            binding.contentEditData.contentDataKesehatan.spinAkseptorKb,
             R.array.cara_kb
         )
 
-        setupSpinner(binding.contentEditData.lyContentKesehatan.spinAsrKesehatan, R.array.asuransi)
+        setupSpinner(
+            binding.contentEditData.contentDataKesehatan.spinAsrKesehatan,
+            R.array.asuransi
+        )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentKesehatan.spinAsrKesehatan,
+            binding.contentEditData.contentDataKesehatan.spinAsrKesehatan,
             R.array.asuransi
         )
 
         setupSpinner(
-            binding.contentEditData.lyContentKesehatan.spinStatusHamil,
+            binding.contentEditData.contentDataKesehatan.spinStatusHamil,
             R.array.status_kehamilan
         )
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentKesehatan.spinStatusHamil,
+            binding.contentEditData.contentDataKesehatan.spinStatusHamil,
             R.array.status_kehamilan
         )
 
-        setupSpinner(binding.contentEditData.lyContentLainnya.spinBacaHuruf, R.array.bahasa)
+        setupSpinner(binding.contentEditData.contentDataLainnya.spinBacaHuruf, R.array.bahasa)
         setupOnItemSelectedListener(
-            binding.contentEditData.lyContentLainnya.spinBacaHuruf,
+            binding.contentEditData.contentDataLainnya.spinBacaHuruf,
             R.array.bahasa
         )
     }
@@ -901,27 +917,27 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
 
         when (tag) {
             PENERBITAN_KTP_DATE_PICKER -> {
-                binding.contentEditData.lyContentDataDiri.tglPenerbitanKtpResult.text =
+                binding.contentEditData.contentDataDiri.tglPenerbitanKtpResult.text =
                     dateFormat.format(calendar.time)
             }
 
             TANGGAL_LAHIR_DATE_PICKER -> {
-                binding.contentEditData.lyContentDataLahir.tglLahirResult.text =
+                binding.contentEditData.contentDataLahir.tglLahirResult.text =
                     dateFormat.format(calendar.time)
             }
 
             EXP_PASPOR_DATE_PICKER -> {
-                binding.contentEditData.lyContentKewarganegaraan.expPasporResult.text =
+                binding.contentEditData.contentDataKewarganegaraan.expPasporResult.text =
                     dateFormat.format(calendar.time)
             }
 
             TANGGAL_KAWIN_DATE_PICKER -> {
-                binding.contentEditData.lyContentKawin.tanggalKawinResult.text =
+                binding.contentEditData.contentDataPerkawinan.tanggalKawinResult.text =
                     dateFormat.format(calendar.time)
             }
 
             TANGGAL_CERAI_DATE_PICKER -> {
-                binding.contentEditData.lyContentKawin.tglCeraiResult.text =
+                binding.contentEditData.contentDataPerkawinan.tglCeraiResult.text =
                     dateFormat.format(calendar.time)
             }
         }
@@ -932,7 +948,7 @@ class DetailPendudukActivity : AppCompatActivity(), DatePickerFragment.DialogDat
         calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
         calendar.set(Calendar.MINUTE, minute)
         val dateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
-        binding.contentEditData.lyContentDataLahir.waktuLahirResult.text =
+        binding.contentEditData.contentDataLahir.waktuLahirResult.text =
             dateFormat.format(calendar.time)
     }
 }
