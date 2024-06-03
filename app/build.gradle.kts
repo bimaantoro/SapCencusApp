@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("com.google.devtools.ksp")
     id("kotlin-parcelize")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -57,12 +58,11 @@ dependencies {
 
     // mlkit
     implementation(libs.text.recognition)
-    implementation(libs.entity.extraction)
 
     // cameraX
     implementation(libs.androidx.camera.camera2)
-    implementation(libs.androidx.camera.lifecycle)
-    implementation(libs.androidx.camera.view)
+    implementation(libs.camera.lifecycle)
+    implementation(libs.camera.view)
 
     // lifecycle
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
@@ -89,12 +89,17 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
 
+    // firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation(libs.firebase.firestore)
+
     // paging
     implementation(libs.androidx.paging.runtime.ktx)
     implementation(libs.room.paging)
 
     implementation(libs.glide)
     implementation(libs.imagepicker)
+    implementation(libs.guava)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

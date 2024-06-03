@@ -4,7 +4,7 @@
 
     <string name="show_data_penduduk">Lihat Data Penduduk</string>
     <string name="scan_dokumen">Scan Dokumen</string>
-    
+
     <string name="logout">Log Keluar</string>
 
     <string name="title_ocr">Gunakan OCR</string>
@@ -71,8 +71,7 @@
     <string name="tag_id_card">Tag ID Card</string>
     <string name="tempat_penerbitan_ktp">Tempat Penerbitan KTP</string>
     <string name="searchbar_hint">Masukkan NIK / Nama</string>
-    <string name="edit_data">edit Data</string>
-    <string name="edit_data_penduduk">Edit Data Penduduk</string>
+
     <string name="nomor_kk_sebelumnya">Nomor KK Sebelumnya</string>
     <string name="status_penduduk">Status Penduduk</string>
     <string name="tanggal_penerbitan_ktp">Tanggal Penerbitan KTP</string>
@@ -602,7 +601,6 @@
     <string name="err_golongan_darah_field">Golongan darah tidak boleh kosong</string>
 
 
-    <string name="search_nik_penduduk">Cari NIK penduduk</string>
     <string name="nik_search">Periksa kembali NIK yang ingin Anda cari</string>
     <string name="cari">Cari</string>
 
@@ -628,15 +626,18 @@
 
     <string name="preview_ktp_label">Unggah gambar KTP</string>
     <string name="preview_kk_label">Unggah gambar Kartu Keluarga</string>
-    
 
     <string name="back">Kembali</string>
-    
-    
+
+    <string name="edit_data_penduduk">Edit Data Penduduk</string>
+    <string name="edit_data_user">Edit data User</string>
+
     <string name="flash_camera_content_desc">Flash kamera</string>
     <string name="image_ktp_content_desc">Preview gambar KTP</string>
     <string name="image_kk_content_desc">Preview gambar Kartu Keluarga</string>
     <string name="logo_bulila_content_desc">Logo Desa Bulila</string>
+    <string name="search_nik_penduduk_content_desc">Cari NIK penduduk</string>
+    <string name="add_user_content_desc">Tambah User</string>
 
     <string name="ktp_ocr_screen">Scan KTP</string>
     <string name="result_ktp_ocr_screen">Hasil Scan KTP</string>
@@ -648,6 +649,7 @@
     <string name="capture_photo">Mohon tunggu</string>
     <string name="raw_text_field">Raw Text</string>
     <string name="penduduk_list_screen">Data Penduduk</string>
+    <string name="user_list_screen">Data User</string>
 
 
     <string name="description_warning_ocr_ktp">Hasil scan KTP kemungkinan tidak akurat. Selalu lakukan pengecekan kembali sebelum mengirimkan data.</string>
@@ -657,6 +659,7 @@
     <string name="pin_hint">* * * * * *</string>
 
     <string name="masuk_sebagai">Masuk sebagai</string>
+    <string name="name_placeholder">User</string>
 
 
 </resources>

@@ -1,5 +1,6 @@
-package com.desabulila.snapcencus.data
+package com.desabulila.snapcencus.data.repository
 
+import com.desabulila.snapcencus.data.ResultState
 import com.desabulila.snapcencus.data.model.ListDataModel
 import com.desabulila.snapcencus.data.network.response.CommonResponse
 import com.desabulila.snapcencus.data.network.response.DetailPendudukResponse

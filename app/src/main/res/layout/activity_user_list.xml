@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.user.list.PendudukListActivity">
+    tools:context=".ui.admin.list.UserListActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -17,13 +17,13 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:title="@string/penduduk_list_screen" />
+            app:title="@string/user_list_screen" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <include
-        android:id="@+id/content_penduduk_list"
-        layout="@layout/content_penduduk_list" />
+        android:id="@+id/content_user_list"
+        layout="@layout/content_user_list" />
 
     <include
         android:id="@+id/content_loading"
@@ -36,22 +36,18 @@
         android:visibility="gone" />
 
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/fabSearch"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        android:contentDescription="@string/search_nik_penduduk_content_desc"
-        android:text="@string/search_nik_penduduk_content_desc"
-        android:textColor="@color/white"
+        android:contentDescription="@string/add_user_content_desc"
         app:backgroundTint="@color/green"
-        app:icon="@drawable/ic_search"
-        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:shapeAppearance="@style/RoundShapeButton" />
+        app:shapeAppearance="@style/RoundShapeButton"
+        app:srcCompat="@drawable/ic_add"
+        app:tint="@color/white" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

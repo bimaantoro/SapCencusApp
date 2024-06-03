@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "413405801168",
+    "project_id": "snapcencusapp",
+    "storage_bucket": "snapcencusapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413405801168:android:1eca68c34286854f86ccd5",
+        "android_client_info": {
+          "package_name": "com.desabulila.snapcencus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDce_wcy7TXvR48W2YHRPnoJNS7qRG58VY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

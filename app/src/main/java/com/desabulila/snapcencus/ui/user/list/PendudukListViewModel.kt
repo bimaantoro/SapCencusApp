@@ -5,12 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.desabulila.snapcencus.data.ResultState
-import com.desabulila.snapcencus.data.SnapCencusRepository
+import com.desabulila.snapcencus.data.repository.SnapCencusRepository
 import com.desabulila.snapcencus.data.model.ListDataModel
-import com.google.mlkit.common.sdkinternal.model.BaseModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class PendudukListViewModel(private val snapCencusRepository: SnapCencusRepository) : ViewModel() {

@@ -22,7 +22,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <include
-        android:id="@+id/content_edit_data"
+        android:id="@+id/content_detail_data"
         layout="@layout/content_detail_data" />
 
 

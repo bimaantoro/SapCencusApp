@@ -1,7 +1,7 @@
 package com.desabulila.snapcencus.data.local.pref
 
 data class UserModel(
-    val docId: String,
+    var docId: String,
     val pin: String,
     val name: String,
     val role: String,

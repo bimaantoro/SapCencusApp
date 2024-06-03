@@ -3,7 +3,7 @@ package com.desabulila.snapcencus.ui
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.desabulila.snapcencus.data.SnapCencusRepository
+import com.desabulila.snapcencus.data.repository.SnapCencusRepository
 import com.desabulila.snapcencus.di.Injection
 import com.desabulila.snapcencus.ui.user.detail.DetailPendudukViewModel
 import com.desabulila.snapcencus.ui.user.list.PendudukListViewModel
