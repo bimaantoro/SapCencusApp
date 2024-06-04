@@ -3,11 +3,14 @@ package com.desabulila.snapcencus.ui.user.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.desabulila.snapcencus.R
 import com.desabulila.snapcencus.databinding.ActivityMainUserBinding
+import com.desabulila.snapcencus.ui.UserViewModelFactory
+import com.desabulila.snapcencus.ui.home.HomeActivity
 import com.desabulila.snapcencus.ui.user.list.PendudukListActivity
 import com.desabulila.snapcencus.ui.user.ocr.ktp.KtpOcrActivity
 import com.desabulila.snapcencus.ui.user.ocr.result.ResultKtpOcrActivity
@@ -17,6 +20,10 @@ class MainUserActivity : AppCompatActivity() {
 
     private val binding: ActivityMainUserBinding by lazy {
         ActivityMainUserBinding.inflate(layoutInflater)
+    }
+
+    private val viewModel: MainUserViewModel by viewModels {
+        UserViewModelFactory.getInstance(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +36,14 @@ class MainUserActivity : AppCompatActivity() {
             insets
         }
 
+        setupView()
         setupAction()
+    }
+
+    private fun setupView() {
+        viewModel.getSession().observe(this) {
+            binding.tvSubHeadline.text = it.name
+        }
     }
 
     private fun setupAction() {
@@ -43,7 +57,10 @@ class MainUserActivity : AppCompatActivity() {
         }
 
         binding.btnLogout.setOnClickListener {
-
+            viewModel.logout()
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

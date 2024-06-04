@@ -40,59 +40,25 @@ class PinAuthActivity : AppCompatActivity() {
             insets
         }
 
+        setupLoading()
+        setupSnackbarText()
         setupIntent()
-        setupObserver()
+        setupPostPin()
         setupListener()
     }
 
-    private fun setupObserver() {
+    private fun setupLoading() {
         viewModel.isLoading.observe(this) {
             showLoading(it)
         }
+    }
 
+    private fun setupSnackbarText() {
         viewModel.snackbarText.observe(this) {
             it.getContentIfNotHandled()?.let { snackBarText ->
                 showSnackbarText(snackBarText)
             }
         }
-
-        viewModel.pinResult.observe(this) { result ->
-            when (result) {
-                is Result.Success -> {
-                    handleLoginPinSuccess(result.data)
-                }
-
-                is Result.Error -> {
-                    showSnackbarText(result.error)
-                }
-
-                is Result.Empty -> {
-                    showSnackbarText("Pin yang anda masukkan salah")
-                }
-            }
-        }
-    }
-
-    private fun handleLoginPinSuccess(user: UserModel) {
-        if (user.role != role) {
-            showSnackbarText("Login failed")
-            return
-        }
-
-        val welcomeMessage = "Selamat datang, ${user.name}"
-        showSnackbarText(welcomeMessage)
-
-        val intent = when (user.role) {
-            "admin" -> Intent(this, MainAdminActivity::class.java)
-            else -> Intent(this, MainUserActivity::class.java)
-        }
-        startActivity(intent)
-        finish()
-    }
-
-    private fun setupIntent() {
-        val role = intent.getStringExtra(EXTRA_ROLE)
-        binding.contentPinAuth.itemPinAuth.tvRole.text = role
     }
 
     private fun setupListener() {
@@ -119,8 +85,50 @@ class PinAuthActivity : AppCompatActivity() {
         }
 
         binding.contentPinAuth.itemPinAuth.btnOk.setOnClickListener {
-            viewModel.checkPin(pin)
+            viewModel.postPin(pin)
         }
+    }
+
+    private fun setupPostPin() {
+        viewModel.pinResult.observe(this) { result ->
+            when (result) {
+                is Result.Success -> {
+                    val data = result.data
+                    handleLoginPinSuccess(data)
+                    viewModel.saveSession(data)
+                }
+
+                is Result.Error -> {
+                    showSnackbarText(result.error)
+                }
+
+                is Result.Empty -> {
+                    showSnackbarText("Pin tidak boleh kosong")
+                }
+            }
+        }
+    }
+
+    private fun handleLoginPinSuccess(user: UserModel) {
+        if (user.role != role) {
+            showSnackbarText("Login failed")
+            return
+        }
+
+        val welcomeMessage = "Selamat datang, ${user.name}"
+        showSnackbarText(welcomeMessage)
+
+        val intent = when (user.role) {
+            "admin" -> Intent(this, MainAdminActivity::class.java)
+            else -> Intent(this, MainUserActivity::class.java)
+        }
+        startActivity(intent)
+        finish()
+    }
+
+    private fun setupIntent() {
+        val role = intent.getStringExtra(EXTRA_ROLE)
+        binding.contentPinAuth.itemPinAuth.tvRole.text = role
     }
 
     private fun showLoading(isLoading: Boolean) {

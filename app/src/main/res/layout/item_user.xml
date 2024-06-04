@@ -21,7 +21,7 @@
             android:layout_marginTop="8dp"
             android:hint="@string/nama"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"

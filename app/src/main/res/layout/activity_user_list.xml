@@ -26,9 +26,10 @@
         layout="@layout/content_user_list" />
 
     <include
-        android:id="@+id/content_loading"
-        layout="@layout/item_loading"
-        android:visibility="gone" />
+        android:id="@+id/item_dialog_loading"
+        layout="@layout/item_dialog_loading"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <include
         android:id="@+id/content_error_message"

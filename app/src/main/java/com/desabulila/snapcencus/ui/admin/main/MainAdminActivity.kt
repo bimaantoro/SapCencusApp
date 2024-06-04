@@ -11,6 +11,7 @@ import com.desabulila.snapcencus.R
 import com.desabulila.snapcencus.databinding.ActivityMainAdminBinding
 import com.desabulila.snapcencus.ui.UserViewModelFactory
 import com.desabulila.snapcencus.ui.admin.list.UserListActivity
+import com.desabulila.snapcencus.ui.home.HomeActivity
 
 class MainAdminActivity : AppCompatActivity() {
 
@@ -43,12 +44,16 @@ class MainAdminActivity : AppCompatActivity() {
     }
 
     private fun setupAction() {
-        binding.btnEditDataUser.setOnClickListener {
+        binding.btnShowDataUser.setOnClickListener {
             val intent = Intent(this, UserListActivity::class.java)
             startActivity(intent)
         }
 
         binding.btnLogout.setOnClickListener {
+            viewModel.logout()
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }

@@ -2,7 +2,9 @@
     <string name="app_name">SnapCencus</string>
     <string name="welcome">Selamat Datang</string>
 
-    <string name="show_data_penduduk">Lihat Data Penduduk</string>
+    <string name="show_data_penduduk">Lihat data Penduduk</string>
+    <string name="show_data_user">Lihat data User</string>
+
     <string name="scan_dokumen">Scan Dokumen</string>
 
     <string name="logout">Log Keluar</string>
@@ -33,7 +35,11 @@
     <string name="pekerjaan">Pekerjaan</string>
     <string name="kewarganegaraan">Kewarganegaraan</string>
     <string name="gol_darah">Golongan Darah</string>
+
+
     <string name="save">Simpan</string>
+    <string name="update">Perbarui</string>
+
     <string name="kartu_keluarga">Kartu Keluarga!</string>
 
     <string name="hasil_scan_kk">Hasil Scan Kartu Keluarga</string>
@@ -644,6 +650,13 @@
 
     <string name="kk_ocr_screen">Scan Kartu Keluarga</string>
     <string name="result_kk_ocr_screen">Hasil Kartu Keluarga</string>
+
+    <string name="add_user_screen">Tambah User</string>
+    <string name="edit_user_screen">Edit User</string>
+
+    <string name="empty_name_err">Nama tidak boleh kosong</string>
+    <string name="empty_pin_err">Pin tidak boleh kosong</string>
+    <string name="pin_not_match_err">Pin tidak sama</string>
 
 
     <string name="capture_photo">Mohon tunggu</string>

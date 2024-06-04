@@ -23,12 +23,10 @@ import com.desabulila.snapcencus.databinding.ActivityKtpOcrBinding
 import com.desabulila.snapcencus.ui.user.ocr.camera.CameraActivity
 import com.desabulila.snapcencus.ui.user.ocr.camera.CameraActivity.Companion.CAMERA_RESULT
 import com.desabulila.snapcencus.ui.user.ocr.camera.CameraActivity.Companion.EXTRA_IMAGE_KTP
-import com.desabulila.snapcencus.ui.user.ocr.result.ResultKtpOcrActivity
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
-import java.util.regex.Pattern
 
 class KtpOcrActivity : AppCompatActivity() {
 
@@ -176,41 +174,15 @@ class KtpOcrActivity : AppCompatActivity() {
 
                     for (block in visionText.textBlocks) {
                         val blockText = block.text
-
-                        val regexNikPattern = "\\d{16}"
-
-                        val filteredNik = blockText
-                            .replace("O", "0")
-                            .replace("l", "1")
-                            .replace("b", "6")
-                            .replace("\\?", "7")
-                            .replace(" ", "")
-
-                        val pattern = Pattern.compile(regexNikPattern)
-                        val matcher = pattern.matcher(filteredNik)
-
-                        if (matcher.find()) {
-                            ktpData.nik = matcher.group()
+                        Log.d("MAIN-block", blockText)
+                        for (line in block.lines) {
+                            val lineText = line.text
+                            Log.d("MAIN-line", lineText)
+                            for (element in line.elements) {
+                                val elementText = element.text
+                                Log.d("MAIN-element", elementText)
+                            }
                         }
-
-                        val intent = Intent(this, ResultKtpOcrActivity::class.java).apply {
-                            putExtra("nik", ktpData.nik)
-                            putExtra("nama", ktpData.nama)
-                            putExtra("tempatLahir", ktpData.tempatLahir)
-                            putExtra("tanggalLahir", ktpData.tanggalLahir)
-                            putExtra("jenisKelamin", ktpData.jenisKelamin)
-                            putExtra("golonganDarah", ktpData.golDarah)
-                            putExtra("alamat", ktpData.alamat)
-                            putExtra("rtRw", ktpData.rtRw)
-                            putExtra("kel", ktpData.kel)
-                            putExtra("kec", ktpData.kec)
-                            putExtra("agama", ktpData.agama)
-                            putExtra("statusPerkawinan", ktpData.statusKawin)
-                            putExtra("pekerjaan", ktpData.pekerjaan)
-                            putExtra("kewarganegaraan", ktpData.statusWargaNegara)
-                        }
-
-                        startActivity(intent)
                     }
 
                 } else {
@@ -223,46 +195,6 @@ class KtpOcrActivity : AppCompatActivity() {
                 binding.progressBar.visibility = View.GONE
                 showToast(it.message.toString())
             }
-    }
-
-    private fun parseKtpData(detectedText: String): KtpModel {
-        var nik = ""
-        val nama = ""
-        val tempatLahir = ""
-        val tanggalLahir = ""
-        val jenisKelamin = ""
-        val golDarah = ""
-        val alamat = ""
-        val rt = ""
-        val rw = ""
-        val kel = ""
-        val kec = ""
-        val agama = ""
-        val statusKawin = ""
-        val pekerjaan = ""
-        val statusWargaNegara = ""
-
-        when {
-            detectedText.contains("NIK") -> nik = detectedText.substringAfter(":").trim()
-        }
-
-        return KtpModel(
-            nik,
-            nama,
-            tempatLahir,
-            tanggalLahir,
-            jenisKelamin,
-            golDarah,
-            alamat,
-            rt,
-            rw,
-            kel,
-            kec,
-            agama,
-            statusKawin,
-            pekerjaan,
-            statusWargaNegara
-        )
     }
 
     private fun showToast(message: String) {

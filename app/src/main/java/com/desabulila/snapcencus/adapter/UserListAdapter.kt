@@ -18,6 +18,9 @@ class UserListAdapter : ListAdapter<UserModel, UserListAdapter.UserViewHolder>(D
 
             binding.btnEditUser.setOnClickListener {
                 val intent = Intent(itemView.context, EditUserActivity::class.java)
+                intent.putExtra(EditUserActivity.EXTRA_DOC_ID, data.docId)
+                intent.putExtra(EditUserActivity.EXTRA_NAME, data.name)
+                intent.putExtra(EditUserActivity.EXTRA_PIN, data.pin)
                 itemView.context.startActivity(intent)
             }
         }
@@ -26,12 +29,12 @@ class UserListAdapter : ListAdapter<UserModel, UserListAdapter.UserViewHolder>(D
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): UserListAdapter.UserViewHolder {
+    ): UserViewHolder {
         val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return UserViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: UserListAdapter.UserViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val data = getItem(position)
         if (data != null) {
             holder.bind(data)

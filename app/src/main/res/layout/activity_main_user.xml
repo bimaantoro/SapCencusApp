@@ -17,10 +17,23 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
         android:textColor="@color/green"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/gHorizontal1" />
+        app:layout_constraintTop_toTopOf="@+id/gHorizontal" />
+
+    <TextView
+        android:id="@+id/tvSubHeadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/name_placeholder"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tvHeadline"
+        app:layout_constraintStart_toStartOf="@+id/tvHeadline"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeadline" />
 
     <ImageView
         android:id="@+id/ivLogo"
@@ -30,7 +43,7 @@
         android:contentDescription="@string/logo_bulila_content_desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHeadline"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubHeadline"
         app:srcCompat="@drawable/logo" />
 
     <com.google.android.material.button.MaterialButton
@@ -51,13 +64,13 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnShowData"
+        style="?attr/materialButtonOutlinedStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:padding="16dp"
-        style="?attr/materialButtonOutlinedStyle"
         android:text="@string/show_data_penduduk"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,11 +96,10 @@
         app:shapeAppearance="@style/RoundShapeButton" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gHorizontal1"
+        android:id="@+id/gHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
         app:layout_constraintGuide_percent="0.2" />
 
     <androidx.constraintlayout.widget.Guideline

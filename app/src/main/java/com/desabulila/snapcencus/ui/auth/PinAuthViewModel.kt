@@ -8,9 +8,7 @@ import com.desabulila.snapcencus.data.Result
 import com.desabulila.snapcencus.data.local.pref.UserModel
 import com.desabulila.snapcencus.data.repository.UserRepository
 import com.desabulila.snapcencus.utils.Event
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class PinAuthViewModel(private val userRepository: UserRepository) : ViewModel() {
 
@@ -23,12 +21,10 @@ class PinAuthViewModel(private val userRepository: UserRepository) : ViewModel()
     private val _pinResult = MutableLiveData<Result<UserModel>>()
     val pinResult: LiveData<Result<UserModel>> = _pinResult
 
-    fun checkPin(pin: String) {
+    fun postPin(pin: String) {
         _isLoading.value = true
         viewModelScope.launch {
-            val result = withContext(Dispatchers.IO) {
-                userRepository.checkPin(pin)
-            }
+            val result = userRepository.postPin(pin)
             _isLoading.value = false
             when (result) {
                 is Result.Success -> {
@@ -40,9 +36,15 @@ class PinAuthViewModel(private val userRepository: UserRepository) : ViewModel()
                 }
 
                 is Result.Empty -> {
-                    _snackbarText.value = Event("Pin yang anda masukkan salah")
+                    _snackbarText.value = Event("Pin tidak boleh kosong")
                 }
             }
+        }
+    }
+
+    fun saveSession(user: UserModel) {
+        viewModelScope.launch {
+            userRepository.saveSession(user)
         }
     }
 }

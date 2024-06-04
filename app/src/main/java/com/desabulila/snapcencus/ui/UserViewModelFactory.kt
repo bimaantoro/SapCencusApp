@@ -5,8 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.desabulila.snapcencus.data.repository.UserRepository
 import com.desabulila.snapcencus.di.Injection
+import com.desabulila.snapcencus.ui.admin.add.AddUserViewModel
+import com.desabulila.snapcencus.ui.admin.edit.EditUserViewModel
+import com.desabulila.snapcencus.ui.admin.list.UserListViewModel
 import com.desabulila.snapcencus.ui.admin.main.MainAdminViewModel
 import com.desabulila.snapcencus.ui.auth.PinAuthViewModel
+import com.desabulila.snapcencus.ui.user.main.MainUserViewModel
 
 class UserViewModelFactory(private val userRepository: UserRepository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -20,6 +24,22 @@ class UserViewModelFactory(private val userRepository: UserRepository) :
 
             modelClass.isAssignableFrom(MainAdminViewModel::class.java) -> {
                 MainAdminViewModel(userRepository) as T
+            }
+
+            modelClass.isAssignableFrom(AddUserViewModel::class.java) -> {
+                AddUserViewModel(userRepository) as T
+            }
+
+            modelClass.isAssignableFrom(UserListViewModel::class.java) -> {
+                UserListViewModel(userRepository) as T
+            }
+
+            modelClass.isAssignableFrom(EditUserViewModel::class.java) -> {
+                EditUserViewModel(userRepository) as T
+            }
+
+            modelClass.isAssignableFrom(MainUserViewModel::class.java) -> {
+                MainUserViewModel(userRepository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
